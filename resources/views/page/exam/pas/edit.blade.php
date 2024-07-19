@@ -71,7 +71,7 @@
                                         <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
                                                 <div class="form-label">{{ ucwords(str_replace('_', ' ', $fileField)) }}</div>
-                                                <input type="file" class="form-control" name="{{ $fileField }}">
+                                                <input type="file" class="form-control" name="{{ $fileField }}" value="{{$fileField}}">
                                             </div>
                                         </div>
                                     @endforeach
