@@ -19,19 +19,40 @@ return new class extends Migration
             $table->string('nisn');
             $table->string('semester');
 
+            // signature
             $table->string('released')->nullable();
             $table->string('wname')->nullable();
             $table->string('nip')->nullable();
             $table->string('hmaster')->nullable();
             $table->string('hmnip')->nullable();
 
+            // attitude
             $table->string('beriman')->nullable();
             $table->string('mandiri')->nullable();
             $table->string('gotong_royong')->nullable();
 
+            // ekstraculiculer
+            $table->string('pramuka')->nullable();
+            $table->string('bultang')->nullable();
+            $table->string('futsal')->nullable();
+            $table->string('silat')->nullable();
+            $table->string('desc_pramuka')->nullable();
+            $table->string('desc_bultang')->nullable();
+            $table->string('desc_futsal')->nullable();
+            $table->string('desc_silat')->nullable();
+
+            // attendance
+            $table->string('izin')->nullable();
+            $table->string('sakit')->nullable();
+            $table->string('alpha')->nullable();
+
+            // achivement
+            $table->string('prestasi')->nullable();
+
+            // note
             $table->string('note')->nullable();
 
-
+            // Muatan Nasional
             $table->integer('pai')->nullable();
             $table->text('desc_pai')->nullable();
             $table->integer('pkn')->nullable();

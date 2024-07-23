@@ -48,6 +48,18 @@ class raporController extends Controller
             'beriman' => $request->beriman,
             'mandiri' => $request->mandiri,
             'gotong_royong' => $request->gotong_royong,
+            'pramuka' => $request->pramuka,
+            'bultang' => $request->bultang,
+            'futsal' => $request->futsal,
+            'silat' => $request->silat,
+            'desc_pramuka' => $request->desc_pramuka,
+            'desc_bultang' => $request->desc_bultang,
+            'desc_futsal' => $request->desc_futsal,
+            'desc_silat' => $request->desc_silat,
+            'izin' => $request->izin,
+            'sakit' => $request->sakit,
+            'alpha' => $request->alpha,
+            'prestasi' => $request->prestasi,
             'note' => $request->note,
             'pai' => $request->pai,
             'desc_pai' => $request->desc_pai,
@@ -91,7 +103,6 @@ class raporController extends Controller
             'desc_skj' => $request->desc_skj,
             'pkk' => $request->pkk,
             'desc_pkk' => $request->desc_pkk,
-            'note' => $request->note,
         ]);
 
         return redirect("/rapor")->with("success", "Berhasil disimpan");
@@ -133,6 +144,18 @@ class raporController extends Controller
             'beriman' => $request->beriman,
             'mandiri' => $request->mandiri,
             'gotong_royong' => $request->gotong_royong,
+            'pramuka' => $request->pramuka,
+            'bultang' => $request->bultang,
+            'futsal' => $request->futsal,
+            'silat' => $request->silat,
+            'desc_pramuka' => $request->desc_pramuka,
+            'desc_bultang' => $request->desc_bultang,
+            'desc_futsal' => $request->desc_futsal,
+            'desc_silat' => $request->desc_silat,
+            'izin' => $request->izin,
+            'sakit' => $request->sakit,
+            'alpha' => $request->alpha,
+            'prestasi' => $request->prestasi,
             'note' => $request->note,
             'pai' => $request->pai,
             'desc_pai' => $request->desc_pai,
@@ -176,7 +199,6 @@ class raporController extends Controller
             'desc_skj' => $request->desc_skj,
             'pkk' => $request->pkk,
             'desc_pkk' => $request->desc_pkk,
-            'note' => $request->note,
         ]);
 
         return redirect("/rapor")->with("success", "Berhasil diPerbaharui");
@@ -195,34 +217,34 @@ class raporController extends Controller
         return $pdf->stream('rapor.pdf');
     }
 
-    public function chart($id)
-    {
-        $rapor = Rapor::findOrFail($id);
-        $chartData = [
-            '$rapor->pai',
-            '$rapor->pkn',
-            '$rapor->indo',
-            '$rapor->mtk',
-            '$rapor->sejindo',
-            '$rapor->bhs_asing',
-            '$rapor->sbd',
-            '$rapor->pjok',
-            '$rapor->simdig',
-            '$rapor->fis',
-            '$rapor->kim',
-            '$rapor->sis_kom',
-            '$rapor->komjar',
-            '$rapor->progdas',
-            '$rapor->ddg',
-            '$rapor->iaas',
-            '$rapor->paas',
-            '$rapor->saas',
-            '$rapor->siot',
-            '$rapor->skj',
-            '$rapor->pkk'
-        ];
+    // public function chart($id)
+    // {
+    //     $rapor = Rapor::findOrFail($id);
+    //     $chartData = [
+    //         '$rapor->pai',
+    //         '$rapor->pkn',
+    //         '$rapor->indo',
+    //         '$rapor->mtk',
+    //         '$rapor->sejindo',
+    //         '$rapor->bhs_asing',
+    //         '$rapor->sbd',
+    //         '$rapor->pjok',
+    //         '$rapor->simdig',
+    //         '$rapor->fis',
+    //         '$rapor->kim',
+    //         '$rapor->sis_kom',
+    //         '$rapor->komjar',
+    //         '$rapor->progdas',
+    //         '$rapor->ddg',
+    //         '$rapor->iaas',
+    //         '$rapor->paas',
+    //         '$rapor->saas',
+    //         '$rapor->siot',
+    //         '$rapor->skj',
+    //         '$rapor->pkk'
+    //     ];
 
 
-        return view('page.rapor.rapor', compact('rapor', 'chartData'));
-    }
+    //     return view('page.rapor.rapor', compact('rapor', 'chartData'));
+    // }
 }

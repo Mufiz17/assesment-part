@@ -153,33 +153,6 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <div id="step3">
-                                <div class="card-body">
-                                    <h3 class="card-title">Nilai Sikap</h3>
-                                    <div class="row row-cards">
-                                        <div class="col-sm-6 col-md-6">
-                                            <div class="mb-3">
-                                                <label class="form-label">Beriman, bertakwa kepada Tuhan Yang Maha Esa,
-                                                    dan berakhlak mulia</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="beriman">{{ $rpts->beriman }}</textarea>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-md-6">
-                                            <div class="mb-3">
-                                                <label class="form-label">Mandiri</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="mandiri">{{ $rpts->mandiri }}</textarea>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-md-6">
-                                            <div class="mb-3">
-                                                <label class="form-label">Bergotong royong</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="gotong_royong">{{ $rpts->gotong_royong }}</textarea>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                             <div id="step4">
                                 <div class="card-body">
                                     <h3 class="card-title">Muatan Nasional</h3>
@@ -210,26 +183,6 @@
                                         </div>
                                         <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
-                                                <label class="form-label">Deskripsi Pendidikan Agama Islam dan Budi
-                                                    Pekerti</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_pai">{{ $rpts->desc_pai }}</textarea>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-md-4">
-                                            <div class="mb-3">
-                                                <label class="form-label">Deskripsi Pendidikan Pancasila dan
-                                                    Kewarganegaraan</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_pkn">{{ $rpts->desc_pkn }}</textarea>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-md-4">
-                                            <div class="mb-3">
-                                                <label class="form-label">Deskripsi Bahasa Indonesia</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_indo">{{ $rpts->desc_indo }}</textarea>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-md-4">
-                                            <div class="mb-3">
                                                 <label class="form-label">Matematika</label>
                                                 <input type='number' class="form-control" name="mtk"
                                                     placeholder="Masukan Nilai" value="{{ $rpts->mtk }}">
@@ -247,24 +200,6 @@
                                                 <label class="form-label">Bahasa Asing</label>
                                                 <input type='number' class="form-control" name="bhs_asing"
                                                     placeholder="Masukan Nilai" value="{{ $rpts->bhs_asing }}">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-md-4">
-                                            <div class="mb-3">
-                                                <label class="form-label">Deskripsi Matematika</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_mtk">{{ $rpts->desc_mtk }}</textarea>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-md-4">
-                                            <div class="mb-3">
-                                                <label class="form-label">Deskripsi Sejarah Indonesia</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_sejindo">{{ $rpts->desc_sejindo }}</textarea>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-md-4">
-                                            <div class="mb-3">
-                                                <label class="form-label">Deskripsi Bahasa Asing</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_bhs_asing">{{ $rpts->desc_bhs_asing }}</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -286,18 +221,6 @@
                                                 <label class="form-label">PJOK</label>
                                                 <input type="number" class="form-control" name="pjok"
                                                     placeholder="Masukan Nilai" value="{{ $rpts->pjok }}">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-md-6">
-                                            <div class="mb-3">
-                                                <label class="form-label">Deskripsi Seni Budaya</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_sbd">{{ $rpts->desc_sbd }}</textarea>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-md-6">
-                                            <div class="mb-3">
-                                                <label class="form-label">Deskripsi PJOK</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_pjok">{{ $rpts->desc_pjok }}</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -328,25 +251,6 @@
                                                     placeholder="Masukan Nilai" value="{{ $rpts->kim }}">
                                             </div>
                                         </div>
-                                        <div class="col-sm-6 col-md-4">
-                                            <div class="mb-3">
-                                                <label class="form-label">Deskripsi Simulasi dan Komunikasi
-                                                    Digital</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_simdig">{{ $rpts->desc_simdig }}</textarea>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-md-4">
-                                            <div class="mb-3">
-                                                <label class="form-label">Deskripsi Fisika</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_fis">{{ $rpts->desc_fis }}</textarea>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-md-4">
-                                            <div class="mb-3">
-                                                <label class="form-label">Deskripsi Kimia</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_kim">{{ $rpts->desc_kim }}</textarea>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -375,35 +279,11 @@
                                                     placeholder="Masukan Nilai" value="{{ $rpts->progdas }}">
                                             </div>
                                         </div>
-                                        <div class="col-sm-6 col-md-4">
-                                            <div class="mb-3">
-                                                <label class="form-label">Deskripsi Sistem Komputer</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_sis_kom">{{ $rpts->desc_sis_kom }}</textarea>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-md-4">
-                                            <div class="mb-3">
-                                                <label class="form-label">Deskripsi Komputer dan Jaringan</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_komjar">{{ $rpts->desc_komjar }}</textarea>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-md-4">
-                                            <div class="mb-3">
-                                                <label class="form-label">Deskripsi Pemrograman Dasar</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_progdas">{{ $rpts->desc_progdas }}</textarea>
-                                            </div>
-                                        </div>
                                         <div class="col-sm-6 col-md-12">
                                             <div class="mb-3">
                                                 <label class="form-label">Dasar Design Grafis</label>
                                                 <input type="number" class="form-control" name="ddg"
                                                     placeholder="Masukan Nilai" value="{{ $rpts->ddg }}">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-md-12">
-                                            <div class="mb-3">
-                                                <label class="form-label">Deskripsi Dasar Design Grafis</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_ddg">{{ $rpts->desc_ddg }}</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -436,25 +316,6 @@
                                         </div>
                                         <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
-                                                <label class="form-label">Deskripsi Infrastruktur Komputasi
-                                                    Awan</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_iaas">{{ $rpts->desc_iaas }}</textarea>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-md-4">
-                                            <div class="mb-3">
-                                                <label class="form-label">Deskripsi Platform Komputasi Awan</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_paas">{{ $rpts->desc_paas }}</textarea>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-md-4">
-                                            <div class="mb-3">
-                                                <label class="form-label">Deskripsi Layanan Komputasi Awan</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_saas">{{ $rpts->desc_saas }}</textarea>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-md-4">
-                                            <div class="mb-3">
                                                 <label class="form-label">Sistem Internet of Things</label>
                                                 <input type="number" class="form-control" name="siot"
                                                     placeholder="Masukan Nilai" value="{{ $rpts->siot }}">
@@ -472,25 +333,6 @@
                                                 <label class="form-label">Produk Kreatif dan Kewirausahaan</label>
                                                 <input type="number" class="form-control" name="pkk"
                                                     placeholder="Masukan Nilai" value="{{ $rpts->pkk }}">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-md-4">
-                                            <div class="mb-3">
-                                                <label class="form-label">Deskripsi Sistem Internet of Things</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_siot">{{ $rpts->desc_siot }}</textarea>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-md-4">
-                                            <div class="mb-3">
-                                                <label class="form-label">Deskripsi Sistem Keamanan Jaringan</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_skj">{{ $rpts->desc_skj }}</textarea>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-md-4">
-                                            <div class="mb-3">
-                                                <label class="form-label">Deskripsi Produk Kreatif dan
-                                                    Kewirausahaan</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_pkk">{{ $rpts->desc_pkk }}</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -524,7 +366,7 @@
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const steps = ['step1', 'step2', 'step3', 'step4', 'step5', 'step6', 'step7', 'step8', 'step9'];
+            const steps = ['step1', 'step2', 'step4', 'step5', 'step6', 'step7', 'step8', 'step9'];
             let currentStep = 0;
 
             const nextButton = document.getElementById('nextButton');

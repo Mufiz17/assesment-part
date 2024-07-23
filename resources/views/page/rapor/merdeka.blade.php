@@ -1,4 +1,4 @@
-{{-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -166,8 +166,6 @@
             width: 30%;
             text-align: center;
         }
-
-
     </style>
 </head>
 
@@ -175,27 +173,27 @@
     <p class="title">CAPAIAN HASIL BELAJAR PESERTA DIDIK</p>
     <div class="form-group">
         <div>
-            <label>Nama:</label>
+            <label>Nama: {{ $rapor->nama }}</label>
         </div>
         <div>
-            <label>Kelas:</label>
+            <label>Kelas: {{ $rapor->kelas }}</label>
         </div>
         <div>
-            <label>NISN:</label>
+            <label>NISN: {{ $rapor->nisn }}</label>
         </div>
         <div>
-            <label>Semester:</label>
+            <label>Semester: {{ $rapor->semester }}</label>
         </div>
     </div>
     <div class="form-group">
         <div>
-            <label>Sekolah:</label>
+            <label>Sekolah: SMK TI BAZMA</label>
         </div>
         <div>
-            <label>Tahun Pelajaran:</label>
+            <label>Tahun Pelajaran: {{ $rapor->tahun_ajaran }}</label>
         </div>
         <div>
-            <label>Alamat:</label>
+            <label>Alamat: Jl. Raya Cikampak Cicadas, RT.1/RW.1, Cicadas, Kec. Ciampea, Kabupaten Bogor, Jawa Barat 16620</label>
         </div>
     </div>
 
@@ -209,21 +207,30 @@
         </thead>
         <tbody>
             <tr>
-                <td>Beriman, bertakwa kepada Tuhan Yang Maha Esa, dan berakhlak mulia</td>
-                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
+                @if (!empty($rapor->beriman))
+                    <td>Beriman, bertakwa kepada Tuhan Yang Maha Esa, dan berakhlak mulia</td>
+                    <td>{{ $rapor->beriman }}</td>
+                @endif
             </tr>
             <tr>
+                @if (!empty($rapor->mandiri))
                 <td>Mandiri</td>
-                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
+                <td>{{ $rapor->mandiri }}</td>
+                @endif
             </tr>
             <tr>
-                <td>Bergotong royong</td>
-                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
+            @if (!empty($rapor->gotong_royong))
+            <td>Bergotong royong</td>
+            <td>{{ $rapor->gotong_royong }}</td>
+            @endif
             </tr>
         </tbody>
     </table>
 
     <h3>B. Nilai Akademik</h3>
+    @php
+        $i = 1;
+    @endphp
     <table class="subjects">
         <thead>
             <tr>
@@ -239,136 +246,220 @@
                 <td colspan="3"><strong>Muatan Nasional</strong></td>
             </tr>
             <tr>
-                <td>1</td>
+                @if (!empty($rapor->pai))
+                <td>{{$i++}}</td>
                 <td>Pendidikan Agama dan Budi Pekerti</td>
-                <td>90</td>
-                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
+                <td>{{ $rapor->pai }}</td>
+                <td>{{ $rapor->desc_pai }}</td>
+                @endif
             </tr>
             <tr>
-                <td>2</td>
+                @if (!empty($rapor->pai))
+                <td>{{$i++}}</td>
                 <td>Pendidikan Pancasila dan Kewarganegaraan</td>
-                <td>92</td>
-                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
+                <td>{{ $rapor->pkn }}</td>
+                <td>{{ $rapor->desc_pkn }}</td>
+                @endif
             </tr>
             <tr>
-                <td>3</td>
+                @if (!empty($rapor->indo))
+                <td>{{$i++}}</td>
                 <td>Bahasa Indonesia</td>
-                <td>85</td>
-                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
+                <td>{{ $rapor->indo }}</td>
+                <td>{{ $rapor->desc_indo }}</td>
+                @endif
             </tr>
             <tr>
-                <td>4</td>
+                @if (!empty($rapor->mtk))
+
+                <td>{{$i++}}</td>
                 <td>Matematika</td>
-                <td>92</td>
-                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
+                <td>{{ $rapor->mtk }}</td>
+                <td>{{ $rapor->desc_mtk }}</td>
+                @endif
             </tr>
             <tr>
-                <td>5</td>
+                @if (!empty($rapor->sejindo))
+
+                <td>{{$i++}}</td>
                 <td>Sejarah Indonesia</td>
-                <td>81</td>
-                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
+                <td>{{ $rapor->sejindo }}</td>
+                <td>{{ $rapor->desc_sejindo }}</td>
+                @endif
             </tr>
             <tr>
-                <td>6</td>
-                <td>Bahasa Asing</td>
-                <td>84</td>
-                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
+                @if (!empty($rapor->bhs_asing))
+
+                <td>{{$i++}}</td>
+                <td>Bahasa Inggris</td>
+                <td>{{ $rapor->bhs_asing }}</td>
+                <td>{{ $rapor->desc_bhs_asing }}</td>
+                @endif
             </tr>
+            @if (!empty($rapor->sbd || $rapor->pjok))
+
             <tr class="group-header">
                 <td colspan="1"><strong>B</strong></td>
                 <td colspan="3"><strong>Muatan Kewilayahan</strong></td>
             </tr>
             <tr>
-                <td>7</td>
+                @if (!empty($rapor->sbd))
+
+                <td>{{$i++}}</td>
                 <td>Seni Budaya</td>
-                <td>92</td>
-                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
+                <td>{{ $rapor->sbd }}</td>
+                <td>{{ $rapor->desc_sbd }}</td>
+                @endif
             </tr>
             <tr>
-                <td>8</td>
+                @if (!empty($rapor->pjok))
+
+                <td>{{$i++}}</td>
                 <td>Pendidikan Jasmani, Olahraga, dan Kesehatan</td>
-                <td>90</td>
-                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
+                <td>{{ $rapor->pjok }}</td>
+                <td>{{ $rapor->desc_pjok }}</td>
             </tr>
+                @endif
+            @endif
+
             <tr class="group-header">
                 <td colspan="1"><strong>C</strong></td>
                 <td colspan="3"><strong>Kompetensi Keahlian</strong></td>
             </tr>
+            @if (!empty($rapor->simdig || $rapor->fis || $rapor->kim))
             <tr class="group-header">
                 <td colspan="4"><strong>C1. Dasar Bidang Keahlian</strong></td>
             </tr>
             <tr>
-                <td>9</td>
+                @if (!empty($rapor->simdig))
+
+                <td>{{$i++}}</td>
                 <td>Simulasi dan Komunikasi Digital</td>
-                <td>94</td>
-                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
+                <td>{{ $rapor->simdig }}</td>
+                <td>{{ $rapor->desc_simdig }}</td>
+                @endif
             </tr>
             <tr>
-                <td>10</td>
+                @if (!empty($rapor->fis))
+
+                <td>{{$i++}}</td>
                 <td>Fisika</td>
-                <td>92</td>
-                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
+                <td>{{ $rapor->fis }}</td>
+                <td>{{ $rapor->desc_fis }}</td>
+                @endif
             </tr>
             <tr>
-                <td>11</td>
+                @if (!empty($rapor->kim))
+
+                <td>{{$i++}}</td>
                 <td>Kimia</td>
-                <td>88</td>
-                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
+                <td>{{ $rapor->kim }}</td>
+                <td>{{ $rapor->desc_kim }}</td>
+                @endif
             </tr>
-            <tr>
-                <td>12</td>
-                <td>Dasar Program Keahlian</td>
-                <td>91</td>
-                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
-            </tr>
+            @endif
+            @if (!empty($rapor->sis_kom || $rapor->komjar || $rapor->progdas || $rapor->ddg))
+
             <tr class="group-header">
                 <td colspan="4"><strong>C2. Dasar Program Keahlian</strong></td>
             </tr>
             <tr>
-                <td>13</td>
+                @if (!empty($rapor->sis_kom))
+
+                <td>{{$i++}}</td>
                 <td>Sistem Komputer</td>
-                <td>89</td>
-                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
+                <td>{{ $rapor->sis_kom }}</td>
+                <td>{{ $rapor->desc_sis_kom }}</td>
+                @endif
             </tr>
             <tr>
-                <td>14</td>
+                @if (!empty($rapor->komjar))
+
+                <td>{{$i++}}</td>
                 <td>Komputer dan Jaringan Dasar</td>
-                <td>95</td>
-                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
+                <td>{{ $rapor->komjar }}</td>
+                <td>{{ $rapor->desc_komjar }}</td>
+                @endif
             </tr>
             <tr>
-                <td>15</td>
+                @if (!empty($rapor->progdas))
+
+                <td>{{$i++}}</td>
                 <td>Pemrograman Dasar</td>
-                <td>87</td>
-                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
+                <td>{{ $rapor->progdas }}</td>
+                <td>{{ $rapor->desc_progdas }}</td>
+                @endif
             </tr>
+            <tr>
+                @if (!empty($rapor->ddg))
+
+                <td>{{$i++}}</td>
+                <td>Dasar Desain Grafis</td>
+                <td>{{ $rapor->ddg }}</td>
+                <td>{{ $rapor->desc_ddg }}</td>
+                @endif
+            </tr>
+            @endif
+            @if (!empty($rapor->iaas || $rapor->paas || $rapor->saas || $rapor->siot || $rapor->skj || $rapor->pkk))
+
             <tr class="group-header">
                 <td colspan="4"><strong>C3. Kompetensi Keahlian</strong></td>
             </tr>
             <tr>
-                <td>16</td>
-                <td>Administrasi Infrastruktur Jaringan</td>
-                <td>92</td>
-                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
+                @if (!empty($rapor->iaas))
+
+                <td>{{$i++}}</td>
+                <td>Infrastruktur Komputasi Awan</td>
+                <td>{{ $rapor->iaas }}</td>
+                <td>{{ $rapor->desc_iaas }}</td>
+                @endif
             </tr>
             <tr>
-                <td>17</td>
-                <td>Administrasi Sistem Jaringan</td>
-                <td>90</td>
-                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
+                @if (!empty($rapor->paas))
+
+                <td>{{$i++}}</td>
+                <td>Platform Komputasi Awan</td>
+                <td>{{ $rapor->paas }}</td>
+                <td>{{ $rapor->desc_paas }}</td>
+                @endif
             </tr>
             <tr>
-                <td>18</td>
-                <td>Teknologi Layanan Jaringan</td>
-                <td>94</td>
-                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
+                @if (!empty($rapor->saas))
+
+                <td>{{$i++}}</td>
+                <td>Layanan Komputasi Awan</td>
+                <td>{{ $rapor->saas }}</td>
+                <td>{{ $rapor->desc_saas }}</td>
+                @endif
             </tr>
             <tr>
-                <td>19</td>
+                @if (!empty($rapor->siot))
+
+                <td>{{$i++}}</td>
+                <td>Sistem Internet of Things</td>
+                <td>{{ $rapor->siot }}</td>
+                <td>{{ $rapor->desc_siot }}</td>
+                @endif
+            </tr>
+            <tr>
+                @if (!empty($rapor->skj))
+
+                <td>{{$i++}}</td>
+                <td>Sistem Keamanan Jaringan</td>
+                <td>{{ $rapor->skj }}</td>
+                <td>{{ $rapor->desc_skj }}</td>
+                @endif
+            </tr>
+            <tr>
+                @if (!empty($rapor->pkk))
+
+                <td>{{$i++}}</td>
                 <td>Produk Kreatif dan Kewirausahaan</td>
-                <td>94</td>
-                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
+                <td>{{ $rapor->pkk }}</td>
+                <td>{{ $rapor->desc_pkk }}</td>
+                @endif
             </tr>
+            @endif
         </tbody>
     </table>
 
@@ -378,28 +469,34 @@
             <tr>
                 <th class="no">No</th>
                 <th class="name">Nama Kegiatan</th>
-                <th class="rank">Peringkat</th>
+                <th class="rank">Predikat</th>
                 <th class="desc">Keterangan</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td>1</td>
-                <td>Basket</td>
-                <td>1</td>
-                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
+                <td>Pramuka</td>
+                <td>{{ $rapor->pramuka }}</td>
+                <td>{{ $rapor->desc_pramuka }}</td>
             </tr>
             <tr>
                 <td>2</td>
-                <td>Pramuka</td>
-                <td>1</td>
-                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
+                <td>Bulu Tangkis</td>
+                <td>{{ $rapor->bultang }}</td>
+                <td>{{ $rapor->desc_bultang }}</td>
             </tr>
             <tr>
                 <td>3</td>
-                <td>OSIS</td>
-                <td>-</td>
-                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
+                <td>Futsal</td>
+                <td>{{ $rapor->futsal }}</td>
+                <td>{{ $rapor->desc_futsal }}</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Silat</td>
+                <td>{{ $rapor->silat }}</td>
+                <td>{{ $rapor->desc_silat }}</td>
             </tr>
         </tbody>
     </table>
@@ -427,7 +524,7 @@
                     </tr>
                     <tr>
                         <td>3</td>
-                        <td>Tanpa Keterangan</td>
+                        <td>Alpha</td>
                         <td>0</td>
                     </tr>
                 </tbody>
@@ -466,7 +563,9 @@
         </thead>
         <tbody>
             <tr>
-                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
+                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+                    and scrambled it to make a type
                     specimen book.</td>
             </tr>
         </tbody>
@@ -492,9 +591,9 @@
     </div>
 </body>
 
-</html> --}}
+</html>
 
-
+{{--
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -583,4 +682,4 @@
         </table>
     </div>
 </body>
-</html>
+</html> --}}
