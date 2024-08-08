@@ -12,7 +12,7 @@
                     <div class="mb-4">
                         <div class="col-12 row">
                             <div class="mb-4 col">
-                                <a href="/dashboard" class="btn btn-secondary">
+                                <a href="/penilaian" class="btn btn-secondary">
                                     Back
                                 </a>
                             </div>
@@ -75,7 +75,6 @@
                                         <th></th>
                                         <th></th>
                                         <th></th>
-                                        <th></th>
                                 </thead>
                                 <tbody>
                                     @php
@@ -117,13 +116,6 @@
                                                 <a href="{{ route('rpts.pdf', $item->id) }}">
                                                     <i
                                                         class="fa-solid fa-file-export text-white text-xl bg-teal p-2 rounded-lg"></i>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a href="#" class="" data-bs-toggle="modal"
-                                                    data-bs-target="#modal_create">
-                                                    <i
-                                                        class="fa-solid fa-chart-simple text-white text-xl bg-green p-2 rounded-lg"></i>
                                                 </a>
                                             </td>
                                             <td>

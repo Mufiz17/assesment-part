@@ -9,7 +9,7 @@
                 <div class="row row-cards">
                     <div class="col-12">
                         <div class="mb-4 col">
-                            <a href="/pat" class="btn btn-secondary">
+                            <a href="/penilaian/pat" class="btn btn-secondary">
                                 Back
                             </a>
                         </div>
@@ -86,4 +86,45 @@
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const data = @json($pat);
+    console.log(data);
+
+
+    const setFileInput = (fileName, inputName) => {
+        if (fileName) {
+            const inputElement = document.querySelector(`input[name="${inputName}"]`);
+            if (inputElement) {
+
+                fetch('/storage/' + fileName)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.blob();
+                    })
+                    .then(blob => {
+                        const file = new File([blob], fileName, {
+                            type: blob.type,
+                            lastModified: new Date(),
+                        });
+
+                        const dataTransfer = new DataTransfer();
+                        dataTransfer.items.add(file);
+                        inputElement.files = dataTransfer.files;
+                    })
+                    .catch(error => console.error('Error fetching file:', error));
+            }
+        }
+    };
+
+    const array = ['kisi_kisi', 'soal', 'jawaban', 'proker', 'kehadiran', 'ba', 'sk_panitia', 'tatib', 'surat_pemberitahuan', 'jadwal', 'daftar_nilai', 'tanda_terima_dan_penerimaan_soal', 'kehadiran_panitia']
+    // Call the function with appropriate parameters
+    array.forEach(v => {
+        setFileInput(data[v], v);
+    })
+});
+
+    </script>
 </x-app-layout>

@@ -63,7 +63,7 @@ class pasController extends Controller
 
         pas::create($validateData);
 
-        return redirect('/pas')->with('success', 'Data berhasil ditambahkan');
+        return redirect('/penilaian/pas')->with('success', 'Data berhasil ditambahkan');
     }
 
     public function edit($id)
@@ -122,7 +122,7 @@ class pasController extends Controller
 
         $pas->update($validateData);
 
-        return redirect('/pas')->with('success', 'Data berhasil diperbaharui');
+        return redirect('/penilaian/pas')->with('success', 'Data berhasil diperbaharui');
     }
 
 
@@ -143,7 +143,7 @@ class pasController extends Controller
 
         $pas->delete();
 
-        return redirect('/pas')->with('success', 'Data berhasil dihapus');
+        return redirect('/penilaian/pas')->with('success', 'Data berhasil dihapus');
     }
 
     public function download($id)

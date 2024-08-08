@@ -9,7 +9,7 @@
                 <div class="row row-cards">
                     <div class="col-12">
                         <div class="mb-4 col">
-                            <a href="/pat" class="btn btn-secondary">
+                            <a href="/penilaian/pat" class="btn btn-secondary">
                                 Back
                             </a>
                         </div>

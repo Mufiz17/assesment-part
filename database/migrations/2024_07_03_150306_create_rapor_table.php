@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('semester');
 
             // signature
-            $table->string('released')->nullable();
+            $table->string('released')->nullable()->default('DD MMMM YYYY');;
             $table->string('wname')->nullable();
             $table->string('nip')->nullable();
             $table->string('hmaster')->nullable();
@@ -48,7 +48,7 @@ return new class extends Migration
 
             // achivement
             $table->string('prestasi')->nullable();
-            $table->string('desc_prestasi')->nullable();
+            $table->text('desc_prestasi')->nullable();
 
             // note
             $table->string('note')->nullable();

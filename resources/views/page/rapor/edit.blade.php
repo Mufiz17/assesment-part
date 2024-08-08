@@ -3,13 +3,14 @@
     <link rel="stylesheet" href="{{ asset('dist/css/demo.min.css') }}">
     <script src="{{ asset('dist/js/tabler.min.js') }}"></script>
     <script src="{{ asset('dist/js/demo.min.js') }}"></script>
+    <script src="{{ asset('dist/libs/litepicker/dist/litepicker.js') }}" defer></script>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="col">
                 <div class="row row-cards">
                     <div class="col-12">
                         <div class="mb-4 col">
-                            <a href="/rapor" class="btn btn-secondary">
+                            <a href="/penilaian/rapor" class="btn btn-secondary">
                                 Back
                             </a>
                         </div>
@@ -74,8 +75,12 @@
                                                 <label class="form-label">Semester</label>
                                                 <select class="form-control form-select" name="semester">
                                                     <option value="">Pilih Semester</option>
-                                                    <option value="1 (Ganjil)" {{ $rapor->semester == '1 (Ganjil)' ? 'selected' : '' }}>1 (Ganjil)</option>
-                                                    <option value="2 (Genap)" {{ $rapor->semester == '2 (Genap)' ? 'selected' : '' }}>2 (Genap)</option>
+                                                    <option value="1 (Ganjil)"
+                                                        {{ $rapor->semester == '1 (Ganjil)' ? 'selected' : '' }}>1
+                                                        (Ganjil)</option>
+                                                    <option value="2 (Genap)"
+                                                        {{ $rapor->semester == '2 (Genap)' ? 'selected' : '' }}>2
+                                                        (Genap)</option>
                                                 </select>
                                                 @error('semester')
                                                     <div class="text-danger mt-2"> {{ $message }} </div>
@@ -85,7 +90,8 @@
                                         <div class="col-sm-6 col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label">Nama Siswa</label>
-                                                <input type='text' class="form-control" placeholder="Masukan Nama" name="nama" value="{{ $rapor->nama }}">
+                                                <input type='text' class="form-control" placeholder="Masukan Nama"
+                                                    name="nama" value="{{ $rapor->nama }}">
                                                 @error('nama')
                                                     <div class="text-danger mt-2"> {{ $message }} </div>
                                                 @enderror
@@ -94,7 +100,8 @@
                                         <div class="col-sm-6 col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label">NISN Siswa</label>
-                                                <input type='number' class="form-control" placeholder="Masukan Nama" name="nisn" value="{{ $rapor->nisn }}">
+                                                <input type='number' class="form-control" placeholder="Masukan Nama"
+                                                    name="nisn" value="{{ $rapor->nisn }}">
                                                 @error('nisn')
                                                     <div class="text-danger mt-2"> {{ $message }} </div>
                                                 @enderror
@@ -103,7 +110,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div id="step2">
                                 <div class="card-body">
                                     <h3 class="card-title">Data Tambahan</h3>
@@ -111,31 +117,37 @@
                                         <div class="col-sm-6 col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label">Tanggal dikeluarkan</label>
-                                                <input type='text' class="form-control datepicker" placeholder="Masukan Tanggal" name="released" value="{{ $rapor->released }}">
+                                                <input type='text' class="form-control datepicker"
+                                                    placeholder="Masukan Tanggal" id="datepicker-icon-1" name="released"
+                                                    autocomplete='off' value="{{ $rapor->released }}">
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label">Nama Walas</label>
-                                                <input type='text' class="form-control" placeholder="Masukan Nama" name="wname" value="{{ $rapor->wname }}">
+                                                <input type='text' class="form-control" placeholder="Masukan Nama"
+                                                    name="wname" value="{{ $rapor->wname }}">
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-6">
                                             <div class="mb-3">
-                                                <label class="form-label">NIP Walas</label>
-                                                <input type='text' class="form-control" placeholder="Masukan NIP" name="nip" value="{{ $rapor->nip }}">
+                                                <label class="form-label">NIK Walas</label>
+                                                <input type='text' class="form-control" placeholder="Masukan NIK"
+                                                    name="nip" value="{{ $rapor->nip }}">
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label">Nama Kepala Sekolah</label>
-                                                <input type='text' class="form-control" placeholder="Masukan Nama" name="hmaster" value="{{ $rapor->hmaster }}">
+                                                <input type='text' class="form-control" placeholder="Masukan Nama"
+                                                    name="hmaster" value="{{ $rapor->hmaster }}">
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label">NIP Kepala Sekolah</label>
-                                                <input type='text' class="form-control" placeholder="Masukan NIP" name="hmnip" value="{{ $rapor->hmnip }}">
+                                                <input type='text' class="form-control" placeholder="Masukan NIP"
+                                                    name="hmnip" value="{{ $rapor->hmnip }}">
                                             </div>
                                         </div>
                                     </div>
@@ -148,20 +160,21 @@
                                     <div class="row row-cards">
                                         <div class="col-sm-6 col-md-6">
                                             <div class="mb-3">
-                                                <label class="form-label">Beriman, bertakwa kepada Tuhan Yang Maha Esa, dan berakhlak mulia</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="beriman">{{$rapor->beriman}}</textarea>
+                                                <label class="form-label">Beriman, bertakwa kepada Tuhan Yang Maha Esa,
+                                                    dan berakhlak mulia</label>
+                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="beriman">{{ $rapor->beriman }}</textarea>
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label">Mandiri</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="mandiri">{{$rapor->mandiri}}</textarea>
+                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="mandiri">{{ $rapor->mandiri }}</textarea>
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label">Bergotong royong</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="gotong_royong">{{$rapor->gotong_royong}}</textarea>
+                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="gotong_royong">{{ $rapor->gotong_royong }}</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -175,8 +188,9 @@
                                             <div class="mb-3">
                                                 <label class="form-label">Pendidikan Agama Islam dan Budi
                                                     Pekerti</label>
-                                                <input type="number" class="form-control" placeholder="Masukan Nilai"
-                                                    name="pai" value="{{ $rapor->pai }}">
+                                                <input type="number" class="form-control"
+                                                    placeholder="Masukan Nilai" name="pai"
+                                                    value="{{ $rapor->pai }}">
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-4">
@@ -490,52 +504,52 @@
                                             <div class="mb-3">
                                                 <label class="form-label">Pramuka</label>
                                                 <input type='number ' class="form-control" name="pramuka"
-                                                    placeholder="Masukan Nilai" value="{{$rapor->pramuka}}">
+                                                    placeholder="Masukan Nilai" value="{{ $rapor->pramuka }}">
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
                                                 <label class="form-label">Bulu Tangkis</label>
                                                 <input type='number ' class="form-control" name="bultang"
-                                                    placeholder="Masukan Nilai" value="{{$rapor->bultang}}">
+                                                    placeholder="Masukan Nilai" value="{{ $rapor->bultang }}">
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
                                                 <label class="form-label">Futsal</label>
                                                 <input type='number ' class="form-control" name="futsal"
-                                                    placeholder="Masukan Nilai" value="{{$rapor->futsal}}">
+                                                    placeholder="Masukan Nilai" value="{{ $rapor->futsal }}">
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
                                                 <label class="form-label">Deskripsi Pramuka</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_pramuka">{{$rapor->desc_pramuka}}</textarea>
+                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_pramuka">{{ $rapor->desc_pramuka }}</textarea>
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
                                                 <label class="form-label">Deskripsi Bulu Tangkis</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_bultang">{{$rapor->desc_bultang}}</textarea>
+                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_bultang">{{ $rapor->desc_bultang }}</textarea>
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
                                                 <label class="form-label">Deskripsi Futsal</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_futsal">{{$rapor->desc_futsal}}</textarea>
+                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_futsal">{{ $rapor->desc_futsal }}</textarea>
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-12">
                                             <div class="mb-3">
                                                 <label class="form-label">Silat</label>
                                                 <input type='number ' class="form-control" name="silat"
-                                                    placeholder="Masukan Nilai" value="{{$rapor->silat}}">
+                                                    placeholder="Masukan Nilai" value="{{ $rapor->silat }}">
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-12">
                                             <div class="mb-3">
                                                 <label class="form-label">Deskripsi Silat</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_silat">{{$rapor->desc_silat}}</textarea>
+                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_silat">{{ $rapor->desc_silat }}</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -549,21 +563,21 @@
                                             <div class="mb-3">
                                                 <label class="form-label">Izin</label>
                                                 <input type='number ' class="form-control" name="izin"
-                                                    placeholder="Masukan Nilai" value="{{$rapor->izin}}">
+                                                    placeholder="Masukan Nilai" value="{{ $rapor->izin }}">
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
                                                 <label class="form-label">Sakit</label>
                                                 <input type='number ' class="form-control" name="sakit"
-                                                    placeholder="Masukan Nilai" value="{{$rapor->sakit}}">
+                                                    placeholder="Masukan Nilai" value="{{ $rapor->sakit }}">
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
                                                 <label class="form-label">Alpha</label>
                                                 <input type='number ' class="form-control" name="alpha"
-                                                    placeholder="Masukan Nilai" value="{{$rapor->alpha}}">
+                                                    placeholder="Masukan Nilai" value="{{ $rapor->alpha }}">
                                             </div>
                                         </div>
                                     </div>
@@ -576,79 +590,79 @@
                                         <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
                                                 <label class="form-label">Prestasi 1</label>
-                                                <input type='number ' class="form-control" name="prestasi"
-                                                    placeholder="Masukan Nilai" value="{{$rapor->prestasi}}">
+                                                <input type='number ' class="form-control" name="prestasi[0]"
+                                                    placeholder="Masukan Nilai" value="{{ $rapor->prestasi[0] }}">
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
                                                 <label class="form-label">Prestasi 2</label>
-                                                <input type='number ' class="form-control" name="prestasi"
-                                                    placeholder="Masukan Nilai" value="{{$rapor->prestasi}}">
+                                                <input type='number ' class="form-control" name="prestasi[1]"
+                                                    placeholder="Masukan Nilai" value="{{ $rapor->prestasi[1] }}">
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
                                                 <label class="form-label">Prestasi 3</label>
-                                                <input type='number ' class="form-control" name="prestasi"
-                                                    placeholder="Masukan Nilai" value="{{$rapor->prestasi}}">
+                                                <input type='number ' class="form-control" name="prestasi[2]"
+                                                    placeholder="Masukan Nilai" value="{{ $rapor->prestasi[2] }}">
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
                                                 <label class="form-label">Deskripsi Prestasi 1</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_prestasi">{{$rapor->desc_prestasi}}</textarea>
+                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_prestasi[0]">{{ $rapor->desc_prestasi[0] }}</textarea>
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
                                                 <label class="form-label">Deskripsi Prestasi 2</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_prestasi">{{$rapor->desc_prestasi}}</textarea>
+                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_prestasi[1]">{{ $rapor->desc_prestasi[1] }}</textarea>
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
                                                 <label class="form-label">Deskripsi Prestasi 3</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_prestasi">{{$rapor->desc_prestasi}}</textarea>
+                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_prestasi[2]">{{ $rapor->desc_prestasi[2] }}</textarea>
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
                                                 <label class="form-label">Prestasi 4</label>
-                                                <input type='number ' class="form-control" name="prestasi"
-                                                    placeholder="Masukan Nilai" value="{{$rapor->prestasi}}">
+                                                <input type='number ' class="form-control" name="prestasi[3]"
+                                                    placeholder="Masukan Nilai" value="{{ $rapor->prestasi[3] }}">
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
                                                 <label class="form-label">Prestasi 5</label>
-                                                <input type='number ' class="form-control" name="prestasi"
-                                                    placeholder="Masukan Nilai" value="{{$rapor->prestasi}}">
+                                                <input type='number ' class="form-control" name="prestasi[4]"
+                                                    placeholder="Masukan Nilai" value="{{ $rapor->prestasi[4] }}">
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
                                                 <label class="form-label">Prestasi 6</label>
-                                                <input type='number ' class="form-control" name="prestasi"
-                                                    placeholder="Masukan Nilai" value="{{$rapor->prestasi}}">
+                                                <input type='number ' class="form-control" name="prestasi[5"
+                                                    placeholder="Masukan Nilai" value="{{ $rapor->prestasi[5] }}">
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
                                                 <label class="form-label">Deskripsi Prestasi 4</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_prestasi">{{$rapor->desc_prestasi}}</textarea>
+                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_prestasi[3]">{{ $rapor->desc_prestasi[3] }}</textarea>
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
                                                 <label class="form-label">Deskripsi Prestasi 5</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_prestasi">{{$rapor->desc_prestasi}}</textarea>
+                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_prestasi[4]">{{ $rapor->desc_prestasi[4] }}</textarea>
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
                                                 <label class="form-label">Deskripsi Prestasi 6</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_prestasi">{{$rapor->desc_prestasi}}</textarea>
+                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_prestasi[5]">{{ $rapor->desc_prestasi[5] }}</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -661,7 +675,7 @@
                                         <div class="col-sm-6 col-md-12">
                                             <div class="mb-3">
                                                 <label class="form-label">Catatan</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="note">{{$rapor->note}}</textarea>
+                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="note">{{ $rapor->note }}</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -681,8 +695,37 @@
         </div>
     </div>
     <script>
+        // datepicker
+        function initializeDatepickers() {
+            var datepickers = document.querySelectorAll('[id^="datepicker-icon-"]');
+            datepickers.forEach(function(datepicker) {
+                new Litepicker({
+                    element: datepicker,
+                    format: 'DD MMMM YYYY', // Format tanggal
+                    buttonText: {
+                        previousMonth: `<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M15 6l-6 6l6 6" /></svg>`,
+                        nextMonth: `<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M9 6l6 6l-6 6" /></svg>`,
+                    },
+                    locale: {
+                        months: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus',
+                            'September', 'Oktober', 'November', 'Desember'
+                        ],
+                        weekdays: ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'],
+                    }
+                });
+            });
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
-            const steps = ['step1', 'step2', 'step3', 'step4', 'step5', 'step6', 'step7', 'step8', 'step9', 'step10', 'step11', 'step12'];
+            const steps = ['step1', 'step2', 'step3', 'step4', 'step5', 'step6', 'step7', 'step8', 'step9',
+                'step10', 'step11', 'step12'
+            ];
             let currentStep = 0;
 
             const nextButton = document.getElementById('nextButton');
@@ -717,6 +760,7 @@
             });
 
             showStep(currentStep);
+            initializeDatepickers();
         });
     </script>
 </x-app-layout>

@@ -3,13 +3,15 @@
     <link rel="stylesheet" href="{{ asset('dist/css/demo.min.css') }}">
     <script src="{{ asset('dist/js/tabler.min.js') }}"></script>
     <script src="{{ asset('dist/js/demo.min.js') }}"></script>
+    <script src="{{ asset('dist/libs/litepicker/dist/litepicker.js') }}" defer></script>
+
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="col">
                 <div class="row row-cards">
                     <div class="col-12">
                         <div class="mb-4 col">
-                            <a href="/rpts" class="btn btn-secondary">
+                            <a href="/penilaian/rpts" class="btn btn-secondary">
                                 Back
                             </a>
                         </div>
@@ -118,8 +120,8 @@
                                             <div class="mb-3">
                                                 <label class="form-label">Tanggal dikeluarkan</label>
                                                 <input type='text' class="form-control datepicker"
-                                                    placeholder="Masukan Tanggal" name="released"
-                                                    value="{{ $rpts->released }}">
+                                                    placeholder="Masukan Tanggal" id="datepicker-icon-1" name="released"
+                                                    autocomplete='off' value="{{ $rpts->released }}">
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-6">
@@ -131,8 +133,8 @@
                                         </div>
                                         <div class="col-sm-6 col-md-6">
                                             <div class="mb-3">
-                                                <label class="form-label">NIP Walas</label>
-                                                <input type='text' class="form-control" placeholder="Masukan NIP"
+                                                <label class="form-label">NIK Walas</label>
+                                                <input type='text' class="form-control" placeholder="Masukan NIK"
                                                     name="nip" value="{{ $rpts->nip }}">
                                             </div>
                                         </div>
@@ -145,8 +147,8 @@
                                         </div>
                                         <div class="col-sm-6 col-md-6">
                                             <div class="mb-3">
-                                                <label class="form-label">NIP Kepala Sekolah</label>
-                                                <input type='text' class="form-control" placeholder="Masukan NIP"
+                                                <label class="form-label">NIK Kepala Sekolah</label>
+                                                <input type='text' class="form-control" placeholder="Masukan NIK"
                                                     name="hmnip" value="{{ $rpts->hmnip }}">
                                             </div>
                                         </div>
@@ -340,12 +342,34 @@
                             </div>
                             <div id="step9">
                                 <div class="card-body">
-                                    <h3 class="card-title">Catatan</h3>
+                                    <h3 class="card-title">Kehadiran (Walas)</h3>
                                     <div class="row row-cards">
-                                        <div class="col-sm-6 col-md-12">
+                                        <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
-                                                <label class="form-label">Catatan Wali Kelas</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="note">{{ $rpts->note }}</textarea>
+                                                <label class="form-label">Total Hadir</label>
+                                                <input type='number ' class="form-control" name="kehadiran"
+                                                    placeholder="Masukan Nilai">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-4">
+                                            <div class="mb-3">
+                                                <label class="form-label">Izin</label>
+                                                <input type='number ' class="form-control" name="izin"
+                                                    placeholder="Masukan Nilai">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-4">
+                                            <div class="mb-3">
+                                                <label class="form-label">Sakit</label>
+                                                <input type='number ' class="form-control" name="sakit"
+                                                    placeholder="Masukan Nilai">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-4">
+                                            <div class="mb-3">
+                                                <label class="form-label">Alpha</label>
+                                                <input type='number ' class="form-control" name="alpha"
+                                                    placeholder="Masukan Nilai">
                                             </div>
                                         </div>
                                     </div>
@@ -365,6 +389,32 @@
         </div>
     </div>
     <script>
+        function initializeDatepickers() {
+            var datepickers = document.querySelectorAll('[id^="datepicker-icon-"]');
+            datepickers.forEach(function(datepicker) {
+                new Litepicker({
+                    element: datepicker,
+                    format: 'DD MMMM YYYY', // Format tanggal
+                    buttonText: {
+                        previousMonth: `<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M15 6l-6 6l6 6" /></svg>`,
+                        nextMonth: `<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M9 6l6 6l-6 6" /></svg>`,
+                    },
+                    locale: {
+                        months: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus',
+                            'September', 'Oktober', 'November', 'Desember'
+                        ],
+                        weekdays: ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'],
+                    }
+                });
+            });
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             const steps = ['step1', 'step2', 'step4', 'step5', 'step6', 'step7', 'step8', 'step9'];
             let currentStep = 0;
@@ -401,6 +451,7 @@
             });
 
             showStep(currentStep);
+            initializeDatepickers();
         });
     </script>
 </x-app-layout>

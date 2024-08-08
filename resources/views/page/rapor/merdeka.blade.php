@@ -9,8 +9,51 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
+
+        }
+
+        table.d-none {
+            border: none;
+            width: 100%
+        }
+
+        .d-none td {
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .label {
+            display: inline-block;
+            /* Menampilkan sebagai blok sebaris */
+            width: 100px;
+            /* Lebar tetap untuk label, disesuaikan sesuai kebutuhan */
+            font-weight: bold;
+            /* Menebalkan teks untuk label */
+            vertical-align: top;
+        }
+
+        .long-label {
+            display: inline-block;
+            /* Menampilkan sebagai blok sebaris */
+            width: 150px;
+            /* Lebar tetap untuk label, disesuaikan sesuai kebutuhan */
+            font-weight: bold;
+            /* Menebalkan teks untuk label */
+            vertical-align: top;
+        }
+
+        .value {
+            display: inline-block;
+            /* Menampilkan sebagai blok sebaris */
+        }
+
+        .right {
+            width: 55%;
+        }
+
+        .left {
+            vertical-align: top;
+            width: 45%;
         }
 
         .title {
@@ -18,36 +61,33 @@
             font-weight: bold;
         }
 
-        .form-group {
-            display: flex;
-            margin-bottom: 10px;
+        .group {
+            width: 100%;
         }
 
-        .form-group div {
-            width: 45%;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: bold;
+        .gap {
+            width: 5%
         }
 
         .attendance {
             margin-left: 0;
             margin-right: auto;
+            border-collapse: collapse;
+            margin-top: 20px;
         }
 
         .achievements {
             margin-left: auto;
             margin-right: 0;
+            border-collapse: collapse;
+            margin-top: 20px;
         }
 
         table.attitudes,
         table.subjects,
         table.extracurricular,
         table.attendance,
-        table.achievements,
-        table.note {
+        table.achievements {
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
@@ -76,7 +116,7 @@
         table.attendance th,
         table.achievements th,
         table.note th {
-            background-color: #f2f2f2;
+            background-color: #83878d;
         }
 
         table.attitudes th.dimensi {
@@ -100,7 +140,7 @@
         }
 
         table.extracurricular th.no {
-            width: 5%;
+            width: 10%;
         }
 
         table.extracurricular th.name {
@@ -108,7 +148,7 @@
         }
 
         table.extracurricular th.rank {
-            width: 7%;
+            width: 10%;
         }
 
         table.extracurricular th.desc {
@@ -120,11 +160,11 @@
         }
 
         table.attendance th.type {
-            width: 30%;
+            width: 40%;
         }
 
         table.attendance th.total {
-            width: 40%;
+            width: 50%;
         }
 
         table.achievements th.no {
@@ -132,21 +172,23 @@
         }
 
         table.achievements th.type {
-            width: 30%;
-        }
-
-        table.achievements th.desc {
             width: 40%;
         }
 
-        .group {
-            display: grid;
-            grid-template-columns: auto auto
+        table.achievements th.desc {
+            width: 50%;
+        }
+
+        .notes {
+            margin-right: auto;
+            margin-left: auto;
+            width: 70%;
         }
 
         .note {
-            max-width: 50%;
             margin: 20px auto;
+            border-collapse: collapse;
+            width: 100%;
         }
 
         .note th,
@@ -154,48 +196,73 @@
             text-align: center;
         }
 
-        .signatures {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 40px;
+        .signature {
+            width: 100%;
         }
 
-        .left-signature,
-        .right-signature,
-        .last-signature {
-            width: 30%;
+        .signature tr td {
             text-align: center;
+        }
+
+        .right-signature,
+        .left-signature {
+            width: 30%
+        }
+
+        .center-signature {
+            width: 40%;
+        }
+
+        .center-signature {
+            width: 40%;
+        }
+
+        td.name {
+            text-decoration: underline;
         }
     </style>
 </head>
 
 <body>
     <p class="title">CAPAIAN HASIL BELAJAR PESERTA DIDIK</p>
-    <div class="form-group">
-        <div>
-            <label>Nama: {{ $rapor->nama }}</label>
-        </div>
-        <div>
-            <label>Kelas: {{ $rapor->kelas }}</label>
-        </div>
-        <div>
-            <label>NISN: {{ $rapor->nisn }}</label>
-        </div>
-        <div>
-            <label>Semester: {{ $rapor->semester }}</label>
-        </div>
-    </div>
-    <div class="form-group">
-        <div>
-            <label>Sekolah: SMK TI BAZMA</label>
-        </div>
-        <div>
-            <label>Tahun Pelajaran: {{ $rapor->tahun_ajaran }}</label>
-        </div>
-        <div>
-            <label>Alamat: Jl. Raya Cikampak Cicadas, RT.1/RW.1, Cicadas, Kec. Ciampea, Kabupaten Bogor, Jawa Barat 16620</label>
-        </div>
-    </div>
+    <table class="d-none">
+        <tr>
+            <td class="right">
+                <span class="label">Nama</span>
+                <span class="value">: {{ $rapor->nama }}</span>
+                <br>
+                <span class="label">NISN</span>
+                <span class="value">: {{ $rapor->nisn }}</span>
+                <br>
+                <span class="label">Sekolah</span>
+                <span class="value">: SMK TI BAZMA</span>
+                <br>
+                <span class="label">Alamat</span>
+                <span class="value">: Jl. Raya Cikampak Cicadas,</span>
+                <br>
+                <span class="label"></span>
+                <span class="value"> RT.1/RW.1, Cicadas, Kec.</span>
+                <br>
+                <span class="label"></span>
+                <span class="value"> Ciampea, Kabupaten Bogor,</span>
+                <br>
+                <span class="label"></span>
+                <span class="value"> Jawa Barat 16620</span>
+            </td>
+            <td class="center"></td>
+            <td class="left">
+                <span class="long-label">Kelas</span>
+                <span class="value">: {{ $rapor->kelas }}</span>
+                <br>
+                <span class="long-label">Semester</span>
+                <span class="value">: {{ $rapor->semester }}</span>
+                <br>
+                <span class="long-label">Tahun Pelajaran</span>
+                <span class="value">: {{ $rapor->tahun_ajaran }}</span>
+                <br>
+            </td>
+        </tr>
+    </table>
 
     <h3>A. Sikap</h3>
     <table class="attitudes">
@@ -207,22 +274,16 @@
         </thead>
         <tbody>
             <tr>
-                @if (!empty($rapor->beriman))
-                    <td>Beriman, bertakwa kepada Tuhan Yang Maha Esa, dan berakhlak mulia</td>
-                    <td>{{ $rapor->beriman }}</td>
-                @endif
+                <td>Beriman, bertakwa kepada Tuhan Yang Maha Esa, dan berakhlak mulia</td>
+                <td>{{ $rapor->beriman }}</td>
             </tr>
             <tr>
-                @if (!empty($rapor->mandiri))
                 <td>Mandiri</td>
                 <td>{{ $rapor->mandiri }}</td>
-                @endif
             </tr>
             <tr>
-            @if (!empty($rapor->gotong_royong))
-            <td>Bergotong royong</td>
-            <td>{{ $rapor->gotong_royong }}</td>
-            @endif
+                <td>Bergotong royong</td>
+                <td>{{ $rapor->gotong_royong }}</td>
             </tr>
         </tbody>
     </table>
@@ -242,223 +303,205 @@
         </thead>
         <tbody>
             <tr class="group-header">
-                <td colspan="1"><strong>A</strong></td>
+                <td style="text-align: center;" colspan="1"><strong>A</strong></td>
                 <td colspan="3"><strong>Muatan Nasional</strong></td>
             </tr>
             <tr>
                 @if (!empty($rapor->pai))
-                <td>{{$i++}}</td>
-                <td>Pendidikan Agama dan Budi Pekerti</td>
-                <td>{{ $rapor->pai }}</td>
-                <td>{{ $rapor->desc_pai }}</td>
+                    <td style="text-align: center;">{{ $i++ }}</td>
+                    <td>Pendidikan Agama dan Budi Pekerti</td>
+                    <td style="text-align: center;">{{ $rapor->pai }}</td>
+                    <td>{{ $rapor->desc_pai }}</td>
                 @endif
             </tr>
             <tr>
-                @if (!empty($rapor->pai))
-                <td>{{$i++}}</td>
-                <td>Pendidikan Pancasila dan Kewarganegaraan</td>
-                <td>{{ $rapor->pkn }}</td>
-                <td>{{ $rapor->desc_pkn }}</td>
+                @if (!empty($rapor->pkn))
+                    <td style="text-align: center;">{{ $i++ }}</td>
+                    <td>Pendidikan Pancasila dan Kewarganegaraan</td>
+                    <td style="text-align: center;">{{ $rapor->pkn }}</td>
+                    <td>{{ $rapor->desc_pkn }}</td>
                 @endif
             </tr>
             <tr>
                 @if (!empty($rapor->indo))
-                <td>{{$i++}}</td>
-                <td>Bahasa Indonesia</td>
-                <td>{{ $rapor->indo }}</td>
-                <td>{{ $rapor->desc_indo }}</td>
+                    <td style="text-align: center;">{{ $i++ }}</td>
+                    <td>Bahasa Indonesia</td>
+                    <td style="text-align: center;">{{ $rapor->indo }}</td>
+                    <td>{{ $rapor->desc_indo }}</td>
                 @endif
             </tr>
             <tr>
                 @if (!empty($rapor->mtk))
-
-                <td>{{$i++}}</td>
-                <td>Matematika</td>
-                <td>{{ $rapor->mtk }}</td>
-                <td>{{ $rapor->desc_mtk }}</td>
+                    <td style="text-align: center;">{{ $i++ }}</td>
+                    <td>Matematika</td>
+                    <td style="text-align: center;">{{ $rapor->mtk }}</td>
+                    <td>{{ $rapor->desc_mtk }}</td>
                 @endif
             </tr>
             <tr>
                 @if (!empty($rapor->sejindo))
-
-                <td>{{$i++}}</td>
-                <td>Sejarah Indonesia</td>
-                <td>{{ $rapor->sejindo }}</td>
-                <td>{{ $rapor->desc_sejindo }}</td>
+                    <td style="text-align: center;">{{ $i++ }}</td>
+                    <td>Sejarah Indonesia</td>
+                    <td style="text-align: center;">{{ $rapor->sejindo }}</td>
+                    <td>{{ $rapor->desc_sejindo }}</td>
                 @endif
             </tr>
             <tr>
                 @if (!empty($rapor->bhs_asing))
-
-                <td>{{$i++}}</td>
-                <td>Bahasa Inggris</td>
-                <td>{{ $rapor->bhs_asing }}</td>
-                <td>{{ $rapor->desc_bhs_asing }}</td>
+                    <td style="text-align: center;">{{ $i++ }}</td>
+                    <td>Bahasa Inggris</td>
+                    <td style="text-align: center;">{{ $rapor->bhs_asing }}</td>
+                    <td>{{ $rapor->desc_bhs_asing }}</td>
                 @endif
             </tr>
             @if (!empty($rapor->sbd || $rapor->pjok))
 
-            <tr class="group-header">
-                <td colspan="1"><strong>B</strong></td>
-                <td colspan="3"><strong>Muatan Kewilayahan</strong></td>
-            </tr>
-            <tr>
-                @if (!empty($rapor->sbd))
-
-                <td>{{$i++}}</td>
-                <td>Seni Budaya</td>
-                <td>{{ $rapor->sbd }}</td>
-                <td>{{ $rapor->desc_sbd }}</td>
-                @endif
-            </tr>
-            <tr>
-                @if (!empty($rapor->pjok))
-
-                <td>{{$i++}}</td>
-                <td>Pendidikan Jasmani, Olahraga, dan Kesehatan</td>
-                <td>{{ $rapor->pjok }}</td>
-                <td>{{ $rapor->desc_pjok }}</td>
-            </tr>
-                @endif
+                <tr class="group-header">
+                    <td style="text-align: center;" colspan="1"><strong>B</strong></td>
+                    <td colspan="3"><strong>Muatan Kewilayahan</strong></td>
+                </tr>
+                <tr>
+                    @if (!empty($rapor->sbd))
+                        <td style="text-align: center;">{{ $i++ }}</td>
+                        <td>Seni Budaya</td>
+                        <td style="text-align: center;">{{ $rapor->sbd }}</td>
+                        <td>{{ $rapor->desc_sbd }}</td>
+                    @endif
+                </tr>
+                <tr>
+                    @if (!empty($rapor->pjok))
+                        <td style="text-align: center;">{{ $i++ }}</td>
+                        <td>Pendidikan Jasmani, Olahraga, dan Kesehatan</td>
+                        <td style="text-align: center;">{{ $rapor->pjok }}</td>
+                        <td>{{ $rapor->desc_pjok }}</td>
+                </tr>
+            @endif
             @endif
 
             <tr class="group-header">
-                <td colspan="1"><strong>C</strong></td>
+                <td style="text-align: center;" colspan="1"><strong>C</strong></td>
                 <td colspan="3"><strong>Kompetensi Keahlian</strong></td>
             </tr>
             @if (!empty($rapor->simdig || $rapor->fis || $rapor->kim))
-            <tr class="group-header">
-                <td colspan="4"><strong>C1. Dasar Bidang Keahlian</strong></td>
-            </tr>
-            <tr>
-                @if (!empty($rapor->simdig))
-
-                <td>{{$i++}}</td>
-                <td>Simulasi dan Komunikasi Digital</td>
-                <td>{{ $rapor->simdig }}</td>
-                <td>{{ $rapor->desc_simdig }}</td>
-                @endif
-            </tr>
-            <tr>
-                @if (!empty($rapor->fis))
-
-                <td>{{$i++}}</td>
-                <td>Fisika</td>
-                <td>{{ $rapor->fis }}</td>
-                <td>{{ $rapor->desc_fis }}</td>
-                @endif
-            </tr>
-            <tr>
-                @if (!empty($rapor->kim))
-
-                <td>{{$i++}}</td>
-                <td>Kimia</td>
-                <td>{{ $rapor->kim }}</td>
-                <td>{{ $rapor->desc_kim }}</td>
-                @endif
-            </tr>
+                <tr class="group-header">
+                    <td colspan="4"><strong>C1. Dasar Bidang Keahlian</strong></td>
+                </tr>
+                <tr>
+                    @if (!empty($rapor->simdig))
+                        <td style="text-align: center;">{{ $i++ }}</td>
+                        <td>Simulasi dan Komunikasi Digital</td>
+                        <td style="text-align: center;">{{ $rapor->simdig }}</td>
+                        <td>{{ $rapor->desc_simdig }}</td>
+                    @endif
+                </tr>
+                <tr>
+                    @if (!empty($rapor->fis))
+                        <td style="text-align: center;">{{ $i++ }}</td>
+                        <td>Fisika</td>
+                        <td style="text-align: center;">{{ $rapor->fis }}</td>
+                        <td>{{ $rapor->desc_fis }}</td>
+                    @endif
+                </tr>
+                <tr>
+                    @if (!empty($rapor->kim))
+                        <td style="text-align: center;">{{ $i++ }}</td>
+                        <td>Kimia</td>
+                        <td style="text-align: center;">{{ $rapor->kim }}</td>
+                        <td>{{ $rapor->desc_kim }}</td>
+                    @endif
+                </tr>
             @endif
             @if (!empty($rapor->sis_kom || $rapor->komjar || $rapor->progdas || $rapor->ddg))
 
-            <tr class="group-header">
-                <td colspan="4"><strong>C2. Dasar Program Keahlian</strong></td>
-            </tr>
-            <tr>
-                @if (!empty($rapor->sis_kom))
-
-                <td>{{$i++}}</td>
-                <td>Sistem Komputer</td>
-                <td>{{ $rapor->sis_kom }}</td>
-                <td>{{ $rapor->desc_sis_kom }}</td>
-                @endif
-            </tr>
-            <tr>
-                @if (!empty($rapor->komjar))
-
-                <td>{{$i++}}</td>
-                <td>Komputer dan Jaringan Dasar</td>
-                <td>{{ $rapor->komjar }}</td>
-                <td>{{ $rapor->desc_komjar }}</td>
-                @endif
-            </tr>
-            <tr>
-                @if (!empty($rapor->progdas))
-
-                <td>{{$i++}}</td>
-                <td>Pemrograman Dasar</td>
-                <td>{{ $rapor->progdas }}</td>
-                <td>{{ $rapor->desc_progdas }}</td>
-                @endif
-            </tr>
-            <tr>
-                @if (!empty($rapor->ddg))
-
-                <td>{{$i++}}</td>
-                <td>Dasar Desain Grafis</td>
-                <td>{{ $rapor->ddg }}</td>
-                <td>{{ $rapor->desc_ddg }}</td>
-                @endif
-            </tr>
+                <tr class="group-header">
+                    <td colspan="4"><strong>C2. Dasar Program Keahlian</strong></td>
+                </tr>
+                <tr>
+                    @if (!empty($rapor->sis_kom))
+                        <td style="text-align: center;">{{ $i++ }}</td>
+                        <td>Sistem Komputer</td>
+                        <td style="text-align: center;">{{ $rapor->sis_kom }}</td>
+                        <td>{{ $rapor->desc_sis_kom }}</td>
+                    @endif
+                </tr>
+                <tr>
+                    @if (!empty($rapor->komjar))
+                        <td style="text-align: center;">{{ $i++ }}</td>
+                        <td>Komputer dan Jaringan Dasar</td>
+                        <td style="text-align: center;">{{ $rapor->komjar }}</td>
+                        <td>{{ $rapor->desc_komjar }}</td>
+                    @endif
+                </tr>
+                <tr>
+                    @if (!empty($rapor->progdas))
+                        <td style="text-align: center;">{{ $i++ }}</td>
+                        <td>Pemrograman Dasar</td>
+                        <td style="text-align: center;">{{ $rapor->progdas }}</td>
+                        <td>{{ $rapor->desc_progdas }}</td>
+                    @endif
+                </tr>
+                <tr>
+                    @if (!empty($rapor->ddg))
+                        <td style="text-align: center;">{{ $i++ }}</td>
+                        <td>Dasar Desain Grafis</td>
+                        <td style="text-align: center;">{{ $rapor->ddg }}</td>
+                        <td>{{ $rapor->desc_ddg }}</td>
+                    @endif
+                </tr>
             @endif
             @if (!empty($rapor->iaas || $rapor->paas || $rapor->saas || $rapor->siot || $rapor->skj || $rapor->pkk))
 
-            <tr class="group-header">
-                <td colspan="4"><strong>C3. Kompetensi Keahlian</strong></td>
-            </tr>
-            <tr>
-                @if (!empty($rapor->iaas))
-
-                <td>{{$i++}}</td>
-                <td>Infrastruktur Komputasi Awan</td>
-                <td>{{ $rapor->iaas }}</td>
-                <td>{{ $rapor->desc_iaas }}</td>
-                @endif
-            </tr>
-            <tr>
-                @if (!empty($rapor->paas))
-
-                <td>{{$i++}}</td>
-                <td>Platform Komputasi Awan</td>
-                <td>{{ $rapor->paas }}</td>
-                <td>{{ $rapor->desc_paas }}</td>
-                @endif
-            </tr>
-            <tr>
-                @if (!empty($rapor->saas))
-
-                <td>{{$i++}}</td>
-                <td>Layanan Komputasi Awan</td>
-                <td>{{ $rapor->saas }}</td>
-                <td>{{ $rapor->desc_saas }}</td>
-                @endif
-            </tr>
-            <tr>
-                @if (!empty($rapor->siot))
-
-                <td>{{$i++}}</td>
-                <td>Sistem Internet of Things</td>
-                <td>{{ $rapor->siot }}</td>
-                <td>{{ $rapor->desc_siot }}</td>
-                @endif
-            </tr>
-            <tr>
-                @if (!empty($rapor->skj))
-
-                <td>{{$i++}}</td>
-                <td>Sistem Keamanan Jaringan</td>
-                <td>{{ $rapor->skj }}</td>
-                <td>{{ $rapor->desc_skj }}</td>
-                @endif
-            </tr>
-            <tr>
-                @if (!empty($rapor->pkk))
-
-                <td>{{$i++}}</td>
-                <td>Produk Kreatif dan Kewirausahaan</td>
-                <td>{{ $rapor->pkk }}</td>
-                <td>{{ $rapor->desc_pkk }}</td>
-                @endif
-            </tr>
+                <tr class="group-header">
+                    <td colspan="4"><strong>C3. Kompetensi Keahlian</strong></td>
+                </tr>
+                <tr>
+                    @if (!empty($rapor->iaas))
+                        <td style="text-align: center;">{{ $i++ }}</td>
+                        <td>Infrastruktur Komputasi Awan</td>
+                        <td style="text-align: center;">{{ $rapor->iaas }}</td>
+                        <td>{{ $rapor->desc_iaas }}</td>
+                    @endif
+                </tr>
+                <tr>
+                    @if (!empty($rapor->paas))
+                        <td style="text-align: center;">{{ $i++ }}</td>
+                        <td>Platform Komputasi Awan</td>
+                        <td style="text-align: center;">{{ $rapor->paas }}</td>
+                        <td>{{ $rapor->desc_paas }}</td>
+                    @endif
+                </tr>
+                <tr>
+                    @if (!empty($rapor->saas))
+                        <td style="text-align: center;">{{ $i++ }}</td>
+                        <td>Layanan Komputasi Awan</td>
+                        <td style="text-align: center;">{{ $rapor->saas }}</td>
+                        <td>{{ $rapor->desc_saas }}</td>
+                    @endif
+                </tr>
+                <tr>
+                    @if (!empty($rapor->siot))
+                        <td style="text-align: center;">{{ $i++ }}</td>
+                        <td>Sistem Internet of Things</td>
+                        <td style="text-align: center;">{{ $rapor->siot }}</td>
+                        <td>{{ $rapor->desc_siot }}</td>
+                    @endif
+                </tr>
+                <tr>
+                    @if (!empty($rapor->skj))
+                        <td style="text-align: center;">{{ $i++ }}</td>
+                        <td>Sistem Keamanan Jaringan</td>
+                        <td style="text-align: center;">{{ $rapor->skj }}</td>
+                        <td>{{ $rapor->desc_skj }}</td>
+                    @endif
+                </tr>
+                <tr>
+                    @if (!empty($rapor->pkk))
+                        <td style="text-align: center;">{{ $i++ }}</td>
+                        <td>Produk Kreatif dan Kewirausahaan</td>
+                        <td style="text-align: center;">{{ $rapor->pkk }}</td>
+                        <td>{{ $rapor->desc_pkk }}</td>
+                    @endif
+                </tr>
             @endif
         </tbody>
     </table>
@@ -475,211 +518,149 @@
         </thead>
         <tbody>
             <tr>
-                <td>1</td>
+                <td style="text-align: center;">1</td>
                 <td>Pramuka</td>
-                <td>{{ $rapor->pramuka }}</td>
+                <td style="text-align: center;">{{ $rapor->pramuka }}</td>
                 <td>{{ $rapor->desc_pramuka }}</td>
             </tr>
             <tr>
-                <td>2</td>
+                <td style="text-align: center;">2</td>
                 <td>Bulu Tangkis</td>
-                <td>{{ $rapor->bultang }}</td>
+                <td style="text-align: center;">{{ $rapor->bultang }}</td>
                 <td>{{ $rapor->desc_bultang }}</td>
             </tr>
             <tr>
-                <td>3</td>
+                <td style="text-align: center;">3</td>
                 <td>Futsal</td>
-                <td>{{ $rapor->futsal }}</td>
+                <td style="text-align: center;">{{ $rapor->futsal }}</td>
                 <td>{{ $rapor->desc_futsal }}</td>
             </tr>
             <tr>
-                <td>3</td>
+                <td style="text-align: center;">4</td>
                 <td>Silat</td>
-                <td>{{ $rapor->silat }}</td>
+                <td style="text-align: center;">{{ $rapor->silat }}</td>
                 <td>{{ $rapor->desc_silat }}</td>
             </tr>
         </tbody>
     </table>
 
-    <div class="group">
-        <div>
-            <table class="attendance">
-                <thead>
-                    <tr>
-                        <th class="no">No</th>
-                        <th class="type">Jenis</th>
-                        <th class="total">Total</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Sakit</td>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Izin</td>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Alpha</td>
-                        <td>0</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div>
-            <table class="achievements">
-                <thead>
-                    <tr>
-                        <th class="no">No</th>
-                        <th class="type">Jenis</th>
-                        <th class="desc">Keterangan</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Kejuaraan Basket</td>
-                        <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Kejuaraan Pencak Silat</td>
-                        <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <table class="note">
-        <thead>
-            <tr>
-                <th>Catatan Wali Kelas</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                    and scrambled it to make a type
-                    specimen book.</td>
-            </tr>
-        </tbody>
+    <table class="group">
+        <tr>
+            <td style="vertical-align: top">
+                <table class="attendance">
+                    <thead>
+                        <tr>
+                            <th class="no">No</th>
+                            <th class="type">Jenis</th>
+                            <th class="total">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align: center;">1</td>
+                            <td>Sakit</td>
+                            <td>{{ $rapor->sakit }}</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;">2</td>
+                            <td>Izin</td>
+                            <td>{{ $rapor->izin }}</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;">3</td>
+                            <td>Alpha</td>
+                            <td>{{ $rapor->alpha }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td class="gap"></td>
+            <td>
+                <table class="achievements">
+                    <thead>
+                        <tr>
+                            <th class="no">No</th>
+                            <th class="type">Jenis Prestasi</th>
+                            <th class="desc">Keterangan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (!empty($rapor->prestasi) && is_array($rapor->prestasi))
+                            @foreach ($rapor->prestasi as $index => $prestasi)
+                                <tr>
+                                    <td style="text-align: center;">{{ $index + 1 }}</td>
+                                    <td>{{ $prestasi }}</td>
+                                    <td>{{ $rapor->desc_prestasi[$index] ?? '' }}</td>
+                                </tr>
+                            @endforeach
+                        @else
+                            <tr>
+                                <td colspan="3">Tidak ada prestasi yang tersedia</td>
+                            </tr>
+                        @endif
+                    </tbody>
+                </table>
+            </td>
+        </tr>
     </table>
-    <div class="signatures">
-        <div class="left-signature">
-            <p>Orang Tua/Wali,</p>
-            <br><br><br>
-            <p>______________________</p>
-        </div>
-        <div class="right-signature">
-            <p>Wali Kelas,</p>
-            <br><br><br>
-            <p>______________________</p>
-        </div>
-    </div>
-    <div class="signatures">
-        <div class="last-signature">
-            <p>Kepala Sekolah,</p>
-            <br><br><br>
-            <p>______________________</p>
-        </div>
-    </div>
+
+
+    <table class="notes">
+        <tr>
+            <td>
+                <table class="note">
+                    <thead>
+                        <tr>
+                            <th style="text-align: center;">Catatan Wali Kelas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align: center;">{{ $rapor->note }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <table class="signature">
+        <tr>
+            <td class='right-signature'>Orang Tua/Wali,</td>
+            <td class="center-signature"></td>
+            <td class='left-signature'>Wali Kelas</td>
+        </tr>
+        <tr>
+            <td><br><br><br><br><br><br></td>
+            <td><br><br><br> Mengetahui,<br>Kepala SMK TI BAZMA</td>
+            <td><br><br><br><br><br><br></td>
+        </tr>
+        <tr>
+            <td>________________</td>
+            <td></td>
+            <td class="name">{{ $rapor->wname }}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td ></td>
+            <td>NIK. {{ $rapor->nip }}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td style="padding: 40px"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="name">{{ $rapor->hmaster }}</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>NIK. {{ $rapor->hmnip }}</td>
+            <td></td>
+        </tr>
+    </table>
 </body>
 
 </html>
-
-{{--
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Table Alignment</title>
-    <style>
-        body {
-            font-family: "Poppins", sans-serif;
-            font-weight: 200;
-            font-style: normal;
-            text-align: center;
-        }
-
-        table {
-            border: 1px solid #000;
-            font-size: 14px;
-            width: 90%;
-            margin: 0 auto;
-        }
-
-        .table-container {
-            max-width: 50%;
-            margin-left: auto;
-            margin-right: 0;
-        }
-
-        .table-custom-sm {
-            font-size: 0.8rem;
-            padding: 0.2rem;
-        }
-
-        .table-custom-sm th,
-        .table-custom-sm td {
-            padding: 0.2rem;
-        }
-
-        .up {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .left,
-        .right {
-            width: 45%;
-        }
-
-        .table th,
-        .table td,
-        .table tr {
-            border: 1px solid #000;
-        }
-
-        th {
-            background-color: grey;
-        }
-    </style>
-</head>
-<body>
-    <div class="table-container">
-        <table class="table table-vcenter table-mobile-md card-table table-sm table-custom-sm">
-            <thead>
-                <tr>
-                    <th>No</th>
-                    <th>Absensi</th>
-                    <th>Jumlah</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Izin</td>
-                    <td>0</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Sakit</td>
-                    <td>0</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Alpha</td>
-                    <td>0</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</body>
-</html> --}}

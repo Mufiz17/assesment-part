@@ -63,7 +63,7 @@ class ptsController extends Controller
 
         pts::create($validateData);
 
-        return redirect('/pts')->with('success', 'Data berhasil ditambahkan');
+        return redirect('/penilaian/pts')->with('success', 'Data berhasil ditambahkan');
     }
 
     public function edit($id)
@@ -122,7 +122,7 @@ class ptsController extends Controller
 
         $pts->update($validateData);
 
-        return redirect('/pts')->with('success', 'Data berhasil diperbaharui');
+        return redirect('/penilaian/pts')->with('success', 'Data berhasil diperbaharui');
     }
 
 
@@ -143,7 +143,7 @@ class ptsController extends Controller
 
         $pts->delete();
 
-        return redirect('/pts')->with('success', 'Data berhasil dihapus');
+        return redirect('/penilaian/pts')->with('success', 'Data berhasil dihapus');
     }
 
     public function download($id)

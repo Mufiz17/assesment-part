@@ -45,6 +45,7 @@ class rptsController extends Controller
             'nip' => $request->nip,
             'hmaster' => $request->hmaster,
             'hmnip' => $request->hmnip,
+            'kehadiran' => $request->kehadiran,
             'izin' => $request->izin,
             'sakit' => $request->sakit,
             'alpha' => $request->alpha,
@@ -72,7 +73,7 @@ class rptsController extends Controller
             'pkk' => $request->pkk,
         ]);
 
-        return redirect("/rpts")->with("success", "Berhasil disimpan");
+        return redirect("/penilaian/rpts")->with("success", "Berhasil disimpan");
     }
 
     public function edit($id)
@@ -108,6 +109,7 @@ class rptsController extends Controller
             'nip' => $request->nip,
             'hmaster' => $request->hmaster,
             'hmnip' => $request->hmnip,
+            'kehadiran' => $request->kehadiran,
             'izin' => $request->izin,
             'sakit' => $request->sakit,
             'alpha' => $request->alpha,
@@ -135,13 +137,13 @@ class rptsController extends Controller
             'pkk' => $request->pkk,
         ]);
 
-        return redirect("/rpts")->with("success", "Berhasil diPerbaharui");
+        return redirect("/penilaian/rpts")->with("success", "Berhasil diPerbaharui");
     }
 
     public function destroy($id)
     {
         rpts::findOrFail($id)->delete();
-        return redirect("/rpts")->with("success", "Berhasil dihapus");
+        return redirect("/penilaian/rpts")->with("success", "Berhasil dihapus");
     }
 
     public function pdf($id)
@@ -151,34 +153,4 @@ class rptsController extends Controller
         return $pdf->stream('rpts.pdf');
     }
 
-    // public function chart($id)
-    // {
-    //     $rpts = rpts::findOrFail($id);
-    //     $chartData = [
-    //         '$rpts->pai',
-    //         '$rpts->pkn',
-    //         '$rpts->indo',
-    //         '$rpts->mtk',
-    //         '$rpts->sejindo',
-    //         '$rpts->bhs_asing',
-    //         '$rpts->sbd',
-    //         '$rpts->pjok',
-    //         '$rpts->simdig',
-    //         '$rpts->fis',
-    //         '$rpts->kim',
-    //         '$rpts->sis_kom',
-    //         '$rpts->komjar',
-    //         '$rpts->progdas',
-    //         '$rpts->ddg',
-    //         '$rpts->iaas',
-    //         '$rpts->paas',
-    //         '$rpts->saas',
-    //         '$rpts->siot',
-    //         '$rpts->skj',
-    //         '$rpts->pkk'
-    //     ];
-
-
-    //     return view('page.rapor.pts.rapor', compact('rpts', 'chartData'));
-    // }
-}
+    }

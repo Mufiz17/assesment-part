@@ -11,7 +11,7 @@
                     <div class="mb-4">
                         <div class="col-12 row">
                             <div class="mb-4 col">
-                                <a href="/dashboard" class="btn btn-secondary">
+                                <a href="/penilaian" class="btn btn-secondary">
                                     Back
                                 </a>
                             </div>

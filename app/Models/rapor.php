@@ -35,6 +35,7 @@ class rapor extends Model
         'sakit',
         'alpha',
         'prestasi',
+        'desc_prestasi',
         'note',
         'pai',
         'desc_pai',
@@ -78,5 +79,10 @@ class rapor extends Model
         'desc_skj',
         'pkk',
         'desc_pkk',
+    ];
+
+    protected $casts = [
+        'prestasi' => 'array',
+        'desc_prestasi' => 'array',
     ];
 }

@@ -63,7 +63,7 @@ class patController extends Controller
 
         pat::create($validateData);
 
-        return redirect('/pat')->with('success', 'Data berhasil ditambahkan');
+        return redirect('/penilaian/pat')->with('success', 'Data berhasil ditambahkan');
     }
 
     public function edit($id)
@@ -122,7 +122,7 @@ class patController extends Controller
 
         $pat->update($validateData);
 
-        return redirect('/pat')->with('success', 'Data berhasil diperbaharui');
+        return redirect('/penilaian/pat')->with('success', 'Data berhasil diperbaharui');
     }
 
 
@@ -143,7 +143,7 @@ class patController extends Controller
 
         $pat->delete();
 
-        return redirect('/pat')->with('success', 'Data berhasil dihapus');
+        return redirect('/penilaian/pat')->with('success', 'Data berhasil dihapus');
     }
 
     public function download($id)

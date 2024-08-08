@@ -2,35 +2,35 @@
 
 namespace App\Jobs;
 
-use App\Models\Rapor;
-use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
-use Illuminate\Bus\Queueable;
-use Illuminate\Queue\SerializesModels;
-use Illuminate\Queue\InteractsWithQueue;
+use App\Models\Rpts;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Foundation\Bus\Dispatchable;
 
 class GeneratePdf implements ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
-
-    protected $raporId;
+    protected $rpts;
+    protected $fileName;
 
     /**
      * Create a new job instance.
+     *
+     * @return void
      */
-    public function __construct($raporId)
+    public function __construct($rpts, $fileName)
     {
-        $this->raporId = $raporId;
+        $this->rpts = $rpts;
+        $this->fileName = $fileName;
     }
 
     /**
      * Execute the job.
+     *
+     * @return void
      */
     public function handle()
     {
-        $rapor = Rapor::findOrFail($this->raporId);
-        $pdf = FacadePdf::loadView('page.rapor.merdeka', compact('rapor'));
-        $pdf->save(storage_path('app/public/rapor.pdf')); // Simpan PDF ke dalam storage
+        $pdf = Pdf::loadView('page.rapor.pts.merdeka', ['rpts' => $this->rpts]);
+        Storage::put("pdfs/{$this->fileName}.pdf", $pdf->output());
     }
 }
