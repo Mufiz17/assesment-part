@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('average', function (Blueprint $table) {
             $table->id();
 
-            $table->integer('angkatan')->nullable();
+            $table->string('tahun_ajaran');
+            $table->string('kelas');
+            $table->string('semester');
 
             // Muatan Nasional
             $table->integer('pai')->nullable();

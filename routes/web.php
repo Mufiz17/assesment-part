@@ -16,6 +16,7 @@ use App\Http\Controllers\KepsekController;
 use App\Http\Controllers\TendikController;
 use App\Http\Controllers\averageController;
 use App\Http\Controllers\DatabaseDashboard;
+use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\DataKelasController;
 use App\Http\Controllers\NotulensiController;
 use App\Http\Controllers\SupervisiController;
@@ -78,10 +79,14 @@ Route::view('profile', 'profile')
 
 require __DIR__ . '/auth.php';
 
+Route::get('/penilaian/rapor/rerata/chart-data', [AverageController::class, 'chartData']);
+
 Route::controller(averageController::class)->group(function () {
-    Route::get('/penilaian/rapor/rerata', 'index')->name('rerata');
-    Route::get('/penilaian/rapor/create', 'create')->name('rerata.create');
-    Route::post('/penilaian/rapor/store', 'store')->name('rerata.perform');
+    Route::get('/penilaian/rapor/rerata', 'index')->name('average');
+    Route::get('/penilaian/rapor/rerata/create', 'create')->name('average.create');
+    Route::post('/penilaian/rapor/rerata/store', 'store')->name('average.perform');
+    Route::get('/penilaian/rapor/rerata/edit/{id}', 'edit')->name('average.edit');
+    Route::post('/penilaian/rapor/rerata/update/{id}', 'update')->name('average.update');
 });
 Route::controller(raporController::class)->group(function () {
     Route::get('/penilaian/rapor', 'index')->name('rapor');

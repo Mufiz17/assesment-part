@@ -9,9 +9,62 @@
             <div class="col">
                 <div class="row row-cards">
                     <div class="col-12">
-                        <form class="card" action="{{ route('rerata.perform') }}" method="POST"
+                        <form class="card" action="{{ route('average.perform') }}" method="POST"
                             enctype="multipart/form-data">
+                            @csrf
                             <div id="step1">
+                                <div class="card-body">
+                                    <h3 class="card-title">Data Siswa</h3>
+                                    <div class="row row-cards">
+                                        <div class="col-sm-6 col-md-4">
+                                            <div class="mb-3">
+                                                <label class="form-label">Tahun Ajaran</label>
+                                                <select class="form-control form-select" name="tahun_ajaran">
+                                                    <option value="">Pilih Tahun Ajaran</option>
+                                                    <option value="2024-2025">2024-2025</option>
+                                                    <option value="2025-2026">2025-2026</option>
+                                                    <option value="2026-2027">2026-2027</option>
+                                                    <option value="2027-2028">2027-2028</option>
+                                                    <option value="2028-2029">2028-2029</option>
+                                                    <option value="2029-2030">2029-2030</option>
+                                                </select>
+                                                @error('tahun_ajaran')
+                                                    <div class="text-danger mt-2"> {{ $message }} </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-4">
+                                            <div class="mb-3">
+                                                <label class="form-label">Kelas</label>
+                                                <select class="form-control form-select" name="kelas">
+                                                    <option value="">Pilih Kelas</option>
+                                                    <option value="X">X</option>
+                                                    <option value="XI">XI</option>
+                                                    <option value="XII">XII</option>
+                                                    <option value="XIII">XIII</option>
+                                                </select>
+                                                @error('kelas')
+                                                    <div class="text-danger mt-2"> {{ $message }} </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-4">
+                                            <div class="mb-3">
+                                                <label class="form-label">Semester</label>
+                                                <select class="form-control form-select" name="semester">
+                                                    <option value="">Pilih Semester</option>
+                                                    <option value="1 (Ganjil)">1 (Ganjil)</option>
+                                                    <option value="2 (Genap)">2 (Genap)</option>
+                                                </select>
+                                                @error('semester')
+                                                    <div class="text-danger mt-2"> {{ $message }} </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="step2">
                                 <div class="card-body">
                                     <h3 class="card-title">Muatan Nasional</h3>
                                     <div class="row row-cards">
@@ -61,7 +114,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="step2">
+                            <div id="step3">
                                 <div class="card-body">
                                     <h3 class="card-title">Muatan Kewilayahan</h3>
                                     <div class="row row-cards">
@@ -82,7 +135,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="step3">
+                            <div id="step4">
                                 <div class="card-body">
                                     <h3 class="card-title">C1. Dasar Bidang Keahlian</h3>
                                     <div class="row row-cards">
@@ -110,7 +163,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="step4">
+                            <div id="step5">
                                 <div class="card-body">
                                     <h3 class="card-title">C2. Dasar Program Keahlian</h3>
                                     <div class="row row-cards">
@@ -145,7 +198,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="step5">
+                            <div id="step6">
                                 <div class="card-body">
                                     <h3 class="card-title">C3. Kompetensi Keahlian</h3>
                                     <div class="row row-cards">
@@ -210,7 +263,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const steps = ['step1', 'step2', 'step3', 'step4', 'step5', ];
+            const steps = ['step1', 'step2', 'step3', 'step4', 'step5', 'step6', ];
             let currentStep = 0;
 
             const nextButton = document.getElementById('nextButton');

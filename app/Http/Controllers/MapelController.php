@@ -54,19 +54,44 @@ class MapelController extends Controller
             'kelas' => 'required',
             'mapel' => 'required',
             'kategori_kurikulum' => 'required',
-            'rpp.*' => 'nullable|file',
-            'silabus' => 'nullable|file',
-            'ki_kd_skl' => 'nullable|file',
-            'kode_etik' => 'nullable|file',
-            'program_semester' => 'nullable|file',
-            'program_tahunan' => 'nullable|file',
-            'kaldik_sekolah' => 'nullable|file',
-            'jak' => 'nullable|file',
-            'analisi_waktu' => 'nullable|file',
-            'daftar_hadir_siswa' => 'nullable|file',
-            'jadwal_pelajaran' => 'nullable|file',
-            'kisi_kisi_soal_kartu_soal' => 'nullable|file',
-            'pkg' => 'nullable|file',
+            'pkg' => 'nullable|file|max:2056',
+            'silabus' => 'nullable|file|max:2056',
+            'ki_kd_skl' => 'nullable|file|max:2056',
+            'kode_etik' => 'nullable|file|max:2056',
+            'program_semester' => 'nullable|file|max:2056',
+            'program_tahunan' => 'nullable|file|max:2056',
+            'kaldik_sekolah' => 'nullable|file|max:2056',
+            'jak' => 'nullable|file|max:2056',
+            'analisi_waktu' => 'nullable|file|max:2056',
+            'daftar_hadir_siswa' => 'nullable|file|max:2056',
+            'jadwal_pelajaran' => 'nullable|file|max:2056',
+            'kisi_kisi_soal_kartu_soal' => 'nullable|file|max:2056',
+            'rpp_1.*' => 'nullable|file|max:2056',
+            'pendukung_rpp_1.*' => 'nullable|file|max:2056',
+            'rpp_2.*' => 'nullable|file|max:2056',
+            'pendukung_rpp_2.*' => 'nullable|file|max:2056',
+            'rpp_3.*' => 'nullable|file|max:2056',
+            'pendukung_rpp_3.*' => 'nullable|file|max:2056',
+            'rpp_4.*' => 'nullable|file|max:2056',
+            'pendukung_rpp_4.*' => 'nullable|file|max:2056',
+            'rpp_5.*' => 'nullable|file|max:2056',
+            'pendukung_rpp_5.*' => 'nullable|file|max:2056',
+            'rpp_6.*' => 'nullable|file|max:2056',
+            'pendukung_rpp_6.*' => 'nullable|file|max:2056',
+            'rpp_7.*' => 'nullable|file|max:2056',
+            'pendukung_rpp_7.*' => 'nullable|file|max:2056',
+            'rpp_8.*' => 'nullable|file|max:2056',
+            'pendukung_rpp_8.*' => 'nullable|file|max:2056',
+            'rpp_9.*' => 'nullable|file|max:2056',
+            'pendukung_rpp_9.*' => 'nullable|file|max:2056',
+            'rpp_10.*' => 'nullable|file|max:2056',
+            'pendukung_rpp_10.*' => 'nullable|file|max:2056',
+            'rpp_11.*' => 'nullable|file|max:2056',
+            'pendukung_rpp_11.*' => 'nullable|file|max:2056',
+            'rpp_12.*' => 'nullable|file|max:2056',
+            'pendukung_rpp_12.*' => 'nullable|file|max:2056',
+            'rpp_13.*' => 'nullable|file|max:2056',
+            'pendukung_rpp_13.*' => 'nullable|file|max:2056',
         ], [
             'tahun_ajaran.required' => 'Tahun ajaran harus diisi',
             'kelas.required' => 'Kelas harus diisi',
@@ -75,7 +100,7 @@ class MapelController extends Controller
         ]);
 
         $fileFields = [
-            'rpp',
+            'pkg',
             'silabus',
             'ki_kd_skl',
             'kode_etik',
@@ -87,11 +112,36 @@ class MapelController extends Controller
             'daftar_hadir_siswa',
             'jadwal_pelajaran',
             'kisi_kisi_soal_kartu_soal',
-            'pkg',
+            'rpp_1',
+            'pendukung_rpp_1',
+            'rpp_2',
+            'pendukung_rpp_2',
+            'rpp_3',
+            'pendukung_rpp_3',
+            'rpp_4',
+            'pendukung_rpp_4',
+            'rpp_5',
+            'pendukung_rpp_5',
+            'rpp_6',
+            'pendukung_rpp_6',
+            'rpp_7',
+            'pendukung_rpp_7',
+            'rpp_8',
+            'pendukung_rpp_8',
+            'rpp_9',
+            'pendukung_rpp_9',
+            'rpp_10',
+            'pendukung_rpp_10',
+            'rpp_11',
+            'pendukung_rpp_11',
+            'rpp_12',
+            'pendukung_rpp_12',
+            'rpp_13',
+            'pendukung_rpp_13',
         ];
 
         foreach ($fileFields as $fileField) {
-            if ($fileField === 'rpp' && $request->hasFile($fileField)) {
+            if (strpos($fileField, 'rpp') !== false && $request->hasFile($fileField)) {
                 $rppFiles = [];
                 foreach ($request->file($fileField) as $file) {
                     $originalName = $file->getClientOriginalName();
@@ -123,37 +173,45 @@ class MapelController extends Controller
     {
         $mapel = Mapel::findOrFail($id);
 
-        $validateData = $request->validate(
-            [
-                'tahun_ajaran' => 'required',
-                'kelas' => 'required',
-                'mapel' => 'required',
-                'kategori_kurikulum' => 'required',
-                'rpp.*' => 'nullable|file',
-                'silabus' => 'nullable|file',
-                'ki_kd_skl' => 'nullable|file',
-                'kode_etik' => 'nullable|file',
-                'program_semester' => 'nullable|file',
-                'program_tahunan' => 'nullable|file',
-                'kaldik_sekolah' => 'nullable|file',
-                'jak' => 'nullable|file',
-                'analisi_waktu' => 'nullable|file',
-                'daftar_hadir_siswa' => 'nullable|file',
-                'jadwal_pelajaran' => 'nullable|file',
-                'kisi_kisi_soal_kartu_soal' => 'nullable|file',
-                'pkg' => 'nullable|file',
-            ],
-            [
-                'tahun_ajaran.required' => 'Tahun ajaran harus diisi',
-                'kelas.required' => 'Kelas harus diisi',
-                'mapel.required' => 'Mapel harus diisi',
-                'kategori_kurikulum.required' => 'Kategori harus diisi',
-            ]
-        );
+        $validateData = $request->validate([
+            'tahun_ajaran' => 'required',
+            'kelas' => 'required',
+            'mapel' => 'required',
+            'kategori_kurikulum' => 'required',
+            'pkg' => 'nullable|file|max:2056',
+            'silabus' => 'nullable|file|max:2056',
+            'ki_kd_skl' => 'nullable|file|max:2056',
+            'kode_etik' => 'nullable|file|max:2056',
+            'program_semester' => 'nullable|file|max:2056',
+            'program_tahunan' => 'nullable|file|max:2056',
+            'kaldik_sekolah' => 'nullable|file|max:2056',
+            'jak' => 'nullable|file|max:2056',
+            'analisi_waktu' => 'nullable|file|max:2056',
+            'daftar_hadir_siswa' => 'nullable|file|max:2056',
+            'jadwal_pelajaran' => 'nullable|file|max:2056',
+            'kisi_kisi_soal_kartu_soal' => 'nullable|file|max:2056',
+            'rpp_1.*' => 'nullable|file|max:2056',
+            'rpp_2.*' => 'nullable|file|max:2056',
+            'rpp_3.*' => 'nullable|file|max:2056',
+            'rpp_4.*' => 'nullable|file|max:2056',
+            'rpp_5.*' => 'nullable|file|max:2056',
+            'rpp_6.*' => 'nullable|file|max:2056',
+            'rpp_7.*' => 'nullable|file|max:2056',
+            'rpp_8.*' => 'nullable|file|max:2056',
+            'rpp_9.*' => 'nullable|file|max:2056',
+            'rpp_10.*' => 'nullable|file|max:2056',
+            'rpp_11.*' => 'nullable|file|max:2056',
+            'rpp_12.*' => 'nullable|file|max:2056',
+            'rpp_13.*' => 'nullable|file|max:2056',
+        ], [
+            'tahun_ajaran.required' => 'Tahun ajaran harus diisi',
+            'kelas.required' => 'Kelas harus diisi',
+            'mapel.required' => 'Mapel harus diisi',
+            'kategori_kurikulum.required' => 'Kategori harus diisi',
+        ]);
 
-        // Menyimpan file-file yang di-upload di folder mapel
         $fileFields = [
-            'rpp',
+            'pkg',
             'silabus',
             'ki_kd_skl',
             'kode_etik',
@@ -165,7 +223,19 @@ class MapelController extends Controller
             'daftar_hadir_siswa',
             'jadwal_pelajaran',
             'kisi_kisi_soal_kartu_soal',
-            'pkg',
+            'rpp_1',
+            'rpp_2',
+            'rpp_3',
+            'rpp_4',
+            'rpp_5',
+            'rpp_6',
+            'rpp_7',
+            'rpp_8',
+            'rpp_9',
+            'rpp_10',
+            'rpp_11',
+            'rpp_12',
+            'rpp_13',
         ];
 
         foreach ($fileFields as $fileField) {
@@ -208,9 +278,19 @@ class MapelController extends Controller
 
         // Define file fields
         $fileFields = [
-            'rpp', 'silabus', 'ki_kd_skl', 'kode_etik', 'program_semester',
-            'program_tahunan', 'kaldik_sekolah', 'jak', 'analisi_waktu',
-            'daftar_hadir_siswa', 'jadwal_pelajaran', 'kisi_kisi_soal_kartu_soal', 'pkg'
+            'rpp',
+            'silabus',
+            'ki_kd_skl',
+            'kode_etik',
+            'program_semester',
+            'program_tahunan',
+            'kaldik_sekolah',
+            'jak',
+            'analisi_waktu',
+            'daftar_hadir_siswa',
+            'jadwal_pelajaran',
+            'kisi_kisi_soal_kartu_soal',
+            'pkg'
         ];
 
         foreach ($fileFields as $fileField) {
@@ -241,10 +321,19 @@ class MapelController extends Controller
         $mapel = Mapel::findOrFail($id);
 
         $directories = [
-            'rpp', 'silabus', 'ki_kd_skl', 'kode_etik',
-            'program_semester', 'program_tahunan', 'kaldik_sekolah',
-            'jak', 'analisi_waktu', 'daftar_hadir_siswa',
-            'jadwal_pelajaran', 'kisi_kisi_soal_kartu_soal', 'pkg'
+            'rpp',
+            'silabus',
+            'ki_kd_skl',
+            'kode_etik',
+            'program_semester',
+            'program_tahunan',
+            'kaldik_sekolah',
+            'jak',
+            'analisi_waktu',
+            'daftar_hadir_siswa',
+            'jadwal_pelajaran',
+            'kisi_kisi_soal_kartu_soal',
+            'pkg'
         ];
 
         // Create a temporary file to store the zip

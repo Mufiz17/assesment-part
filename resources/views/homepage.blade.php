@@ -8,7 +8,7 @@
         <div class="py-12">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-4 modals">
                         <a href="#" class="text-decoration-none" data-bs-toggle="modal"
                             data-bs-target="#passwordModal" data-url="/database">
                             <div class="card shadow-sm mb-4 hover-shadow"
@@ -24,7 +24,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 modals">
                         <a href="#" class="text-decoration-none" data-bs-toggle="modal"
                             data-bs-target="#passwordModal" data-url="/korespondensi">
                             <div class="card shadow-sm mb-4 hover-shadow"
@@ -40,7 +40,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 modals">
                         <a href="#" class="text-decoration-none" data-bs-toggle="modal"
                             data-bs-target="#passwordModal" data-url="/administrasi">
                             <div class="card shadow-sm mb-4 hover-shadow"
@@ -56,7 +56,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 modals">
                         <a href="#" class="text-decoration-none" data-bs-toggle="modal"
                             data-bs-target="#passwordModal" data-url="/penilaian">
                             <div class="card shadow-sm mb-4 hover-shadow"
@@ -72,7 +72,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 modals">
                         <a href="#" class="text-decoration-none" data-bs-toggle="modal"
                             data-bs-target="#passwordModal" data-url="/sarpras">
                             <div class="card shadow-sm mb-4 hover-shadow"
@@ -88,7 +88,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 modals">
                         <a href="#" class="text-decoration-none" data-bs-toggle="modal"
                             data-bs-target="#passwordModal" data-url="/finance">
                             <div class="card shadow-sm mb-4 hover-shadow"
@@ -104,7 +104,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 modals">
                         <a href="#" class="text-decoration-none" data-bs-toggle="modal"
                             data-bs-target="#passwordModal" data-url="/finance">
                             <div class="card shadow-sm mb-4 hover-shadow"
@@ -120,7 +120,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 modals">
                         <a href="#" class="text-decoration-none" data-bs-toggle="modal"
                             data-bs-target="#passwordModal" data-url="/finance">
                             <div class="card shadow-sm mb-4 hover-shadow"
@@ -130,7 +130,7 @@
                                         style="width: 50%; height: auto; margin-right: 16px;">
                                     <h2 class="card-title text-xl font-semibold mb-0"
                                         style="font-size: 1.5rem; font-family: 'Poppins', sans-serif; font-weight: bold; color: white;">
-                                        Keasramaan
+                                        Sekolah dan
                                     </h2>
                                 </div>
                             </div>
@@ -221,102 +221,153 @@
     </div>
 
     <!-- Modal for successful password change -->
-    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
+    <div class="modal modal-blur fade show" id="modal-success" tabindex="-1" role="dialog"
+        style="display: none;">
+        <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="successModalLabel">Success</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    Password berhasil diubah.
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-status bg-success"></div>
+                <div class="modal-body text-center py-4">
+                    <!-- SVG yang diperbesar dan dipastikan di tengah -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="icon mb-2 text-green icon-lg d-block mx-auto">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
+                        <path d="M9 12l2 2l4 -4"></path>
+                    </svg>
+                    <h3>Password Successfully Changed</h3>
+                    <div class="text-secondary">Make sure you don't forget the password you just changed</div>
                 </div>
             </div>
         </div>
     </div>
-
     {{-- logika Password --}}
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            let correctPassword = '12345'; // Password yang benar
+            let correctPassword = localStorage.getItem('password') || '12345';
             const submitButton = document.getElementById('submitPassword');
             const passwordInput = document.getElementById('passwordInput');
             const passwordError = document.getElementById('passwordError');
             const changePasswordButton = document.getElementById('changePasswordButton');
             let targetUrl = '';
 
-            const changePasswordModal = new bootstrap.Modal(document.getElementById('changePasswordModal'));
-            const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+            const changePasswordModalElement = document.getElementById('changePasswordModal');
+            const successModalElement = document.getElementById('modal-success');
             const submitChangePasswordButton = document.getElementById('submitChangePassword');
             const currentPasswordInput = document.getElementById('currentPasswordInput');
             const newPasswordInput = document.getElementById('newPasswordInput');
             const changePasswordError = document.getElementById('changePasswordError');
 
-            // Menangani klik pada link card
-            document.querySelectorAll('.col-md-4 a').forEach(link => {
-                link.addEventListener('click', function() {
-                    targetUrl = this.getAttribute('data-url'); // Dapatkan URL dari atribut data-url
-                    passwordInput.value = ''; // Bersihkan input setiap kali modal dibuka
-                    passwordError.classList.add(
-                        'd-none'); // Sembunyikan pesan kesalahan saat modal dibuka
+            function showModal(modalElement, backdropOption = true) {
+                const modalInstance = new bootstrap.Modal(modalElement, {
+                    backdrop: backdropOption
+                });
+                modalInstance.show();
+
+                // Focus on specific fields based on the modal
+                modalElement.addEventListener('shown.bs.modal', function() {
+                    if (modalElement === document.getElementById('passwordModal')) {
+                        passwordInput.focus();
+                    } else if (modalElement === changePasswordModalElement) {
+                        currentPasswordInput.focus();
+                    }
+                });
+            }
+
+            function hideModal(modalElement) {
+                const modalInstance = bootstrap.Modal.getInstance(modalElement);
+                if (modalInstance) {
+                    modalInstance.hide();
+                    // Ensure the backdrop is also removed if necessary
+                    document.querySelectorAll('.modal-backdrop').forEach(backdrop => {
+                        backdrop.parentNode.removeChild(backdrop);
+                    });
+                }
+            }
+
+            function resetAllModals() {
+                const modals = [
+                    document.getElementById('passwordModal'),
+                    changePasswordModalElement,
+                    successModalElement
+                ];
+                modals.forEach(modal => {
+                    const modalInstance = bootstrap.Modal.getInstance(modal);
+                    if (modalInstance) {
+                        modalInstance.hide();
+                        // Ensure the backdrop is also removed if necessary
+                        document.querySelectorAll('.modal-backdrop').forEach(backdrop => {
+                            backdrop.parentNode.removeChild(backdrop);
+                        });
+                    }
+                });
+            }
+
+            document.querySelectorAll('.modals a').forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    targetUrl = this.getAttribute('data-url');
+                    passwordInput.value = '';
+                    passwordError.classList.add('d-none');
+                    showModal(document.getElementById('passwordModal'));
                 });
             });
 
-            // Menangani event "Enter" dalam input password
             passwordInput.addEventListener('keydown', function(event) {
                 if (event.key === 'Enter') {
-                    event.preventDefault(); // Mencegah submit form default
-                    submitButton.click(); // Simulasikan klik tombol submit
+                    event.preventDefault();
+                    submitButton.click();
                 }
             });
 
-            // Menangani klik pada tombol submit modal
-            submitButton.addEventListener('click', function() {
+            submitButton.addEventListener('click', function(event) {
+                event.preventDefault();
                 const enteredPassword = passwordInput.value.trim();
 
                 if (enteredPassword === correctPassword) {
-                    // Tutup modal
-                    var passwordModal = bootstrap.Modal.getInstance(document.getElementById(
-                        'passwordModal'));
-                    passwordModal.hide();
-
-                    // Arahkan ke halaman yang dituju
+                    hideModal(document.getElementById('passwordModal'));
                     window.location.href = targetUrl;
                 } else {
-                    // Tampilkan pesan kesalahan
                     passwordError.classList.remove('d-none');
                 }
             });
 
-            // Menangani klik pada tombol "Change Password"
             changePasswordButton.addEventListener('click', function() {
-                var passwordModal = bootstrap.Modal.getInstance(document.getElementById('passwordModal'));
-                passwordModal.hide();
-                changePasswordModal.show();
-                currentPasswordInput.value = ''; // Bersihkan input setiap kali modal dibuka
-                newPasswordInput.value = ''; // Bersihkan input setiap kali modal dibuka
-                changePasswordError.classList.add(
-                    'd-none'); // Sembunyikan pesan kesalahan saat modal dibuka
+                hideModal(document.getElementById('passwordModal'));
+                currentPasswordInput.value = '';
+                newPasswordInput.value = '';
+                changePasswordError.classList.add('d-none');
+                showModal(changePasswordModalElement);
             });
 
-            // Menangani klik pada tombol submit modal ganti password
-            submitChangePasswordButton.addEventListener('click', function() {
+            submitChangePasswordButton.addEventListener('click', function(event) {
+                event.preventDefault();
                 const enteredCurrentPassword = currentPasswordInput.value.trim();
                 const newPassword = newPasswordInput.value.trim();
 
                 if (enteredCurrentPassword === correctPassword && newPassword) {
-                    // Perbarui password
                     correctPassword = newPassword;
-                    changePasswordModal.hide();
-                    successModal.show();
+                    localStorage.setItem('password', correctPassword);
+                    resetAllModals();
+
+                    showModal(successModalElement, false); // No backdrop for success modal
                 } else {
-                    // Tampilkan pesan kesalahan
                     changePasswordError.classList.remove('d-none');
                 }
+            });
+
+            // Add event listener for Enter key in Change Password Modal
+            newPasswordInput.addEventListener('keydown', function(event) {
+                if (event.key === 'Enter') {
+                    event.preventDefault();
+                    submitChangePasswordButton.click();
+                }
+            });
+
+            // Remove disabled attribute
+            document.querySelectorAll('button, a, input').forEach(element => {
+                element.removeAttribute('disabled');
             });
         });
     </script>

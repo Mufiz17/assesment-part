@@ -84,9 +84,9 @@
                                     <div class="row row-cards">
                                         <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
-                                                <label class="form-label">RPP</label>
-                                                <input type="file" name="rpp[]" class="form-control" multiple>
-                                                @error('rpp')
+                                                <label class="form-label">PKG</label>
+                                                <input type="file" name="pkg" class="form-control">
+                                                @error('pkg')
                                                     <div class="text-danger mt-2"> {{ $message }} </div>
                                                 @enderror
                                             </div>
@@ -213,10 +213,209 @@
                                     <h3 class="card-title">Buku Kerja 4</h3>
                                     <div class="row row-cards">
                                         <div class="col-sm-6 col-md-4">
+                                            <div class="mb-2">
+                                                <label class="form-label">RPP 1</label>
+                                                <input type="file" name="rpp_1[]" class="form-control" multiple>
+                                                @error('rpp_1')
+                                                    <div class="text-danger mt-2"> {{ $message }} </div>
+                                                @enderror
+                                            </div>
                                             <div class="mb-3">
-                                                <label class="form-label">PKG</label>
-                                                <input type="file" name="pkg" class="form-control">
-                                                @error('pkg')
+                                                <label class="form-label">Pendukung RPP 1</label>
+                                                <input type="file" name="pendukung_rpp_1[]" class="form-control" multiple>
+                                                @error('pendukung_rpp_1')
+                                                    <div class="text-danger mt-2"> {{ $message }} </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-4">
+                                            <div class="mb-2">
+                                                <label class="form-label">RPP 2</label>
+                                                <input type="file" name="rpp_2[]" class="form-control" multiple>
+                                                @error('rpp_2')
+                                                    <div class="text-danger mt-2"> {{ $message }} </div>
+                                                @enderror
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Pendukung RPP 2</label>
+                                                <input type="file" name="pendukung_rpp_2[]" class="form-control" multiple>
+                                                @error('pendukung_rpp_2')
+                                                    <div class="text-danger mt-2"> {{ $message }} </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-4">
+                                            <div class="mb-2">
+                                                <label class="form-label">RPP 3</label>
+                                                <input type="file" name="rpp_3[]" class="form-control" multiple>
+                                                @error('rpp_3')
+                                                    <div class="text-danger mt-2"> {{ $message }} </div>
+                                                @enderror
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Pendukung RPP 3</label>
+                                                <input type="file" name="pendukung_rpp_3[]" class="form-control" multiple>
+                                                @error('pendukung_rpp_3')
+                                                    <div class="text-danger mt-2"> {{ $message }} </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-4">
+                                            <div class="mb-2">
+                                                <label class="form-label">RPP 4</label>
+                                                <input type="file" name="rpp_4[]" class="form-control" multiple>
+                                                @error('rpp_4')
+                                                    <div class="text-danger mt-2"> {{ $message }} </div>
+                                                @enderror
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Pendukung RPP 4</label>
+                                                <input type="file" name="pendukung_rpp_4[]" class="form-control" multiple>
+                                                @error('pendukung_rpp_4')
+                                                    <div class="text-danger mt-2"> {{ $message }} </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-4">
+                                            <div class="mb-2">
+                                                <label class="form-label">RPP 5</label>
+                                                <input type="file" name="pendukung_rpp_5[]" class="form-control" multiple>
+                                                @error('pendukung_rpp_5')
+                                                    <div class="text-danger mt-2"> {{ $message }} </div>
+                                                @enderror
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Pendukung RPP 5</label>
+                                                <input type="file" name="pendukung_rpp_5[]" class="form-control" multiple>
+                                                @error('pendukung_rpp_5')
+                                                    <div class="text-danger mt-2"> {{ $message }} </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-4">
+                                            <div class="mb-2">
+                                                <label class="form-label">RPP 6</label>
+                                                <input type="file" name="rpp_6[]" class="form-control" multiple>
+                                                @error('rpp_6')
+                                                    <div class="text-danger mt-2"> {{ $message }} </div>
+                                                @enderror
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Pendukung RPP 6</label>
+                                                <input type="file" name="pendukung_rpp_6[]" class="form-control" multiple>
+                                                @error('pendukung_rpp_6')
+                                                    <div class="text-danger mt-2"> {{ $message }} </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-4">
+                                            <div class="mb-2">
+                                                <label class="form-label">RPP 7</label>
+                                                <input type="file" name="pendukung_rpp_7[]" class="form-control" multiple>
+                                                @error('pendukung_rpp_7')
+                                                    <div class="text-danger mt-2"> {{ $message }} </div>
+                                                @enderror
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Pendukung RPP 7</label>
+                                                <input type="file" name="rpp_7[]" class="form-control" multiple>
+                                                @error('rpp_7')
+                                                    <div class="text-danger mt-2"> {{ $message }} </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-4">
+                                            <div class="mb-2">
+                                                <label class="form-label">RPP 8</label>
+                                                <input type="file" name="pendukung_rpp_8[]" class="form-control" multiple>
+                                                @error('pendukung_rpp_8')
+                                                    <div class="text-danger mt-2"> {{ $message }} </div>
+                                                @enderror
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Pendukung RPP 8</label>
+                                                <input type="file" name="rpp_8[]" class="form-control" multiple>
+                                                @error('rpp_8')
+                                                    <div class="text-danger mt-2"> {{ $message }} </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-4">
+                                            <div class="mb-2">
+                                                <label class="form-label">RPP 9</label>
+                                                <input type="file" name="pendukung_rpp_9[]" class="form-control" multiple>
+                                                @error('pendukung_rpp_9')
+                                                    <div class="text-danger mt-2"> {{ $message }} </div>
+                                                @enderror
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Pendukung RPP 9</label>
+                                                <input type="file" name="pendukung_rpp_9[]" class="form-control" multiple>
+                                                @error('pendukung_rpp_9')
+                                                    <div class="text-danger mt-2"> {{ $message }} </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-4">
+                                            <div class="mb-2">
+                                                <label class="form-label">RPP 10</label>
+                                                <input type="file" name="rpp_10[]" class="form-control" multiple>
+                                                @error('rpp_10')
+                                                    <div class="text-danger mt-2"> {{ $message }} </div>
+                                                @enderror
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Pendukung RPP 10</label>
+                                                <input type="file" name="pendukung_rpp_10[]" class="form-control" multiple>
+                                                @error('pendukung_rpp_10')
+                                                    <div class="text-danger mt-2"> {{ $message }} </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-4">
+                                            <div class="mb-2">
+                                                <label class="form-label">RPP 11</label>
+                                                <input type="file" name="rpp_11[]" class="form-control" multiple>
+                                                @error('rpp_11')
+                                                    <div class="text-danger mt-2"> {{ $message }} </div>
+                                                @enderror
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Pendukung RPP 11</label>
+                                                <input type="file" name="pendukung_rpp_11[]" class="form-control" multiple>
+                                                @error('pendukung_rpp_11')
+                                                    <div class="text-danger mt-2"> {{ $message }} </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-4">
+                                            <div class="mb-2">
+                                                <label class="form-label">RPP 12</label>
+                                                <input type="file" name="rpp_12[]" class="form-control" multiple>
+                                                @error('rpp_12')
+                                                    <div class="text-danger mt-2"> {{ $message }} </div>
+                                                @enderror
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Pendukung RPP 12</label>
+                                                <input type="file" name="pendukung_rpp_12[]" class="form-control" multiple>
+                                                @error('pendukung_rpp_12')
+                                                    <div class="text-danger mt-2"> {{ $message }} </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-4">
+                                            <div class="mb-2">
+                                                <label class="form-label">RPP 13</label>
+                                                <input type="file" name="rpp_13[]" class="form-control" multiple>
+                                                @error('rpp_13')
+                                                    <div class="text-danger mt-2"> {{ $message }} </div>
+                                                @enderror
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Pendukung RPP 13</label>
+                                                <input type="file" name="pendukung_rpp_13[]" class="form-control" multiple>
+                                                @error('pendukung_rpp_13')
                                                     <div class="text-danger mt-2"> {{ $message }} </div>
                                                 @enderror
                                             </div>

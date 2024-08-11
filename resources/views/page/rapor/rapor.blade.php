@@ -17,7 +17,7 @@
                                 </a>
                             </div>
                             <div class="mb-4 col d-flex justify-content-end">
-                                <a href="{{ route('rerata') }}" class="btn btn-success mx-6">
+                                <a href="{{ route('average') }}" class="btn btn-success mx-6">
                                     Rerata Mapel
                                 </a>
                                 <a href="{{ route('rapor.create') }}" class="btn btn-primary">

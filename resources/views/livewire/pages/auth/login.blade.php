@@ -17,8 +17,10 @@ $login = function () {
 
     Session::regenerate();
 
-    $this->redirectIntended(default: route('dashboard', absolute: false), navigate: true);
+    // Redirect to the hardcoded URL
+    $this->redirectIntended(default: '/homepage');
 };
+
 
 ?>
 
