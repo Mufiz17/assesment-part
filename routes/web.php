@@ -13,9 +13,11 @@ use App\Http\Controllers\MapelController;
 use App\Http\Controllers\raporController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\KepsekController;
+use App\Http\Controllers\tahsinController;
 use App\Http\Controllers\TendikController;
 use App\Http\Controllers\averageController;
 use App\Http\Controllers\DatabaseDashboard;
+use App\Http\Controllers\tahfidzController;
 use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\DataKelasController;
 use App\Http\Controllers\NotulensiController;
@@ -24,6 +26,7 @@ use App\Http\Controllers\WaliKelasController;
 use App\Http\Controllers\DataMutasiController;
 use App\Http\Controllers\NomorSuratController;
 use App\Http\Controllers\PunishmentController;
+use App\Http\Controllers\sertifikatController;
 use App\Http\Controllers\SuratMasukController;
 use App\Http\Controllers\GeneratePdfController;
 use App\Http\Controllers\suratKeluarController;
@@ -60,6 +63,9 @@ Route::view('administrasi', 'page.home.administrasiKeguruan')
 Route::view('finance', 'page.home.finance')
     ->name('finance');
 
+Route::view('sekolah-keasramaan', 'page.home.keasramaan')
+    ->name('keasramaan');
+
 Route::view('created-by', 'page.home.createdBy')
     ->name('created-by');
 
@@ -68,6 +74,9 @@ Route::view('sarpras', 'page.home.sarpras')
 
 Route::view('pkl', 'database.pkl.pkl')
     ->name('pkl');
+
+Route::view('sekolah-keasramaan/al-quran', 'page.keasramaan.quran.quran')
+    ->name('quran');
 
 
 Route::get('/database', [DatabaseDashboard::class, 'index'])->name('dashboard');
@@ -475,3 +484,30 @@ Route::controller(DormPurchaseController::class)->group(function () {
 });
 
 Route::get('zip-file', [SchoolPurchaseController::class, 'zip']);
+
+
+// Keasramaan
+Route::controller(tahfidzController::class)->group(function () {
+    Route::get('/sekolah-keasramaan/al-quran/tahfidz', 'index')->name('tahfidz');
+    Route::get('/sekolah-keasramaan/al-quran/tahfidz/create', 'create')->name('tahfidz.create');
+    Route::post('/sekolah-keasramaan/al-quran/tahfidz/store', 'store')->name('tahfidz.perform');
+    Route::get('/sekolah-keasramaan/al-quran/tahfidz/edit/{id}', 'edit')->name('tahfidz.edit');
+    Route::put('/sekolah-keasramaan/al-quran/tahfidz/update/{id}', 'update')->name('tahfidz.update');
+    Route::delete('/sekolah-keasramaan/al-quran/tahfidz/delete/{id}', 'destroy')->name('tahfidz.delete');
+});
+Route::controller(tahsinController::class)->group(function () {
+    Route::get('/sekolah-keasramaan/al-quran/tahsin', 'index')->name('tahsin');
+    Route::get('/sekolah-keasramaan/al-quran/tahsin/create', 'create')->name('tahsin.create');
+    Route::post('/sekolah-keasramaan/al-quran/tahsin/store', 'store')->name('tahsin.perform');
+    Route::get('/sekolah-keasramaan/al-quran/tahsin/edit/{id}', 'edit')->name('tahsin.edit');
+    Route::put('/sekolah-keasramaan/al-quran/tahsin/update/{id}', 'update')->name('tahsin.update');
+    Route::delete('/sekolah-keasramaan/al-quran/tahsin/delete/{id}', 'destroy')->name('tahsin.delete');
+});
+Route::controller(sertifikatController::class)->group(function () {
+    Route::get('/sekolah-keasramaan/al-quran/sertif', 'index')->name('sertifikat');
+    Route::get('/sekolah-keasramaan/al-quran/sertif/create', 'create')->name('sertifikat.create');
+    Route::post('/sekolah-keasramaan/al-quran/sertif/store', 'store')->name('sertifikat.perform');
+    Route::get('/sekolah-keasramaan/al-quran/sertif/edit/{id}', 'edit')->name('sertifikat.edit');
+    Route::put('/sekolah-keasramaan/al-quran/sertif/update/{id}', 'update')->name('sertifikat.update');
+    Route::delete('/sekolah-keasramaan/al-quran/sertif/delete/{id}', 'destroy')->name('sertifikat.delete');
+});

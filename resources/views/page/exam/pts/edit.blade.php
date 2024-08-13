@@ -13,7 +13,8 @@
                                 Back
                             </a>
                         </div>
-                        <form class="card" action="{{ route('pts.update', $pts->id) }}" method="post" enctype="multipart/form-data">
+                        <form class="card" action="{{ route('pts.update', $pts->id) }}" method="post"
+                            enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="card-body">
@@ -24,8 +25,9 @@
                                             <label class="form-label">Tahun Ajaran</label>
                                             <select class="form-control form-select" name="tahun_ajaran">
                                                 <option value="">Pilih Tahun Ajaran</option>
-                                                @foreach(['2024-2025', '2025-2026', '2026-2027', '2027-2028', '2028-2029', '2029-2030'] as $tahun)
-                                                    <option value="{{ $tahun }}" {{ $pts->tahun_ajaran == $tahun ? 'selected' : '' }}>
+                                                @foreach (['2024-2025', '2025-2026', '2026-2027', '2027-2028', '2028-2029', '2029-2030'] as $tahun)
+                                                    <option value="{{ $tahun }}"
+                                                        {{ $pts->tahun_ajaran == $tahun ? 'selected' : '' }}>
                                                         {{ $tahun }}
                                                     </option>
                                                 @endforeach
@@ -40,8 +42,9 @@
                                             <label class="form-label">Kelas</label>
                                             <select class="form-control form-select" name="kelas">
                                                 <option value="">Pilih Kelas</option>
-                                                @foreach(['X', 'XI', 'XII', 'XIII'] as $kelas)
-                                                    <option value="{{ $kelas }}" {{ $pts->kelas == $kelas ? 'selected' : '' }}>
+                                                @foreach (['X', 'XI', 'XII', 'XIII'] as $kelas)
+                                                    <option value="{{ $kelas }}"
+                                                        {{ $pts->kelas == $kelas ? 'selected' : '' }}>
                                                         {{ $kelas }}
                                                     </option>
                                                 @endforeach
@@ -56,8 +59,9 @@
                                             <label class="form-label">Mapel</label>
                                             <select class="form-control form-select" name="mapel">
                                                 <option value="">Pilih Mapel</option>
-                                                @foreach(['SAAS', 'PAAS', 'IAAS', 'SKJ', 'SIoT', 'PJOK', 'MTK', 'BIng', 'BInd', 'PAIBP', 'Kimia', 'Fisika', 'Seni', 'Sejarah', 'Pancasila'] as $mapel)
-                                                    <option value="{{ $mapel }}" {{ $pts->mapel == $mapel ? 'selected' : '' }}>
+                                                @foreach (['SAAS', 'PAAS', 'IAAS', 'SKJ', 'SIoT', 'PJOK', 'MTK', 'BIng', 'BInd', 'PAIBP', 'Kimia', 'Fisika', 'Seni', 'Sejarah', 'Pancasila'] as $mapel)
+                                                    <option value="{{ $mapel }}"
+                                                        {{ $pts->mapel == $mapel ? 'selected' : '' }}>
                                                         {{ $mapel }}
                                                     </option>
                                                 @endforeach
@@ -67,11 +71,12 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <p>{{$pts->kisi_kisi}}</p>
-                                    @foreach(['kisi_kisi', 'soal', 'jawaban', 'proker', 'kehadiran', 'ba', 'sk_panitia', 'tatib', 'surat_pemberitahuan', 'jadwal', 'daftar_nilai', 'tanda_terima_dan_penerimaan_soal', 'kehadiran_panitia'] as $fileField)
+                                    <p>{{ $pts->kisi_kisi }}</p>
+                                    @foreach (['kisi_kisi', 'soal', 'jawaban', 'proker', 'kehadiran', 'ba', 'sk_panitia', 'tatib', 'surat_pemberitahuan', 'jadwal', 'daftar_nilai', 'tanda_terima_dan_penerimaan_soal', 'kehadiran_panitia'] as $fileField)
                                         <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
-                                                <div class="form-label">{{ ucwords(str_replace('_', ' ', $fileField)) }}</div>
+                                                <div class="form-label">
+                                                    {{ ucwords(str_replace('_', ' ', $fileField)) }}</div>
                                                 <input type="file" class="form-control" name="{{ $fileField }}">
                                             </div>
                                         </div>
@@ -89,43 +94,45 @@
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-    const data = @json($pts);
-    console.log(data);
+            const data = @json($pts);
+            console.log(data);
 
 
-    const setFileInput = (fileName, inputName) => {
-        if (fileName) {
-            const inputElement = document.querySelector(`input[name="${inputName}"]`);
-            if (inputElement) {
+            const setFileInput = (fileName, inputName) => {
+                if (fileName) {
+                    const inputElement = document.querySelector(`input[name="${inputName}"]`);
+                    if (inputElement) {
 
-                fetch('/storage/' + fileName)
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Network response was not ok');
-                        }
-                        return response.blob();
-                    })
-                    .then(blob => {
-                        const file = new File([blob], fileName, {
-                            type: blob.type,
-                            lastModified: new Date(),
-                        });
+                        fetch('/storage/' + fileName)
+                            .then(response => {
+                                if (!response.ok) {
+                                    throw new Error('Network response was not ok');
+                                }
+                                return response.blob();
+                            })
+                            .then(blob => {
+                                const file = new File([blob], fileName, {
+                                    type: blob.type,
+                                    lastModified: new Date(),
+                                });
 
-                        const dataTransfer = new DataTransfer();
-                        dataTransfer.items.add(file);
-                        inputElement.files = dataTransfer.files;
-                    })
-                    .catch(error => console.error('Error fetching file:', error));
-            }
-        }
-    };
+                                const dataTransfer = new DataTransfer();
+                                dataTransfer.items.add(file);
+                                inputElement.files = dataTransfer.files;
+                            })
+                            .catch(error => console.error('Error fetching file:', error));
+                    }
+                }
+            };
 
-    const array = ['kisi_kisi', 'soal', 'jawaban', 'proker', 'kehadiran', 'ba', 'sk_panitia', 'tatib', 'surat_pemberitahuan', 'jadwal', 'daftar_nilai', 'tanda_terima_dan_penerimaan_soal', 'kehadiran_panitia']
-    // Call the function with appropriate parameters
-    array.forEach(v => {
-        setFileInput(data[v], v);
-    })
-});
-
+            const array = ['kisi_kisi', 'soal', 'jawaban', 'proker', 'kehadiran', 'ba', 'sk_panitia', 'tatib',
+                'surat_pemberitahuan', 'jadwal', 'daftar_nilai', 'tanda_terima_dan_penerimaan_soal',
+                'kehadiran_panitia'
+            ]
+            // Call the function with appropriate parameters
+            array.forEach(v => {
+                setFileInput(data[v], v);
+            })
+        });
     </script>
 </x-app-layout>

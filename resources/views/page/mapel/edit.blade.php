@@ -257,6 +257,270 @@
                                                 @endif
                                             </div>
                                             <div class="mb-3">
+                                                <label class="form-label">Pendukung RPP 1</label>
+                                                <input type="file" name="pendukung_rpp_1[]" class="form-control" multiple>
+                                                @error('pendukung_rpp_1')
+                                                    <div class="text-danger mt-2">{{ $message }}</div>
+                                                @enderror
+                                                @if (isset($rppFiles) && count($rppFiles) > 0)
+                                                    <p>{{ count($rppFiles) }} File</p>
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-4">
+                                            <div class="mb-2">
+                                                <label class="form-label">RPP 2</label>
+                                                <input type="file" name="rpp_2[]" class="form-control" multiple>
+                                                @error('rpp_2')
+                                                    <div class="text-danger mt-2">{{ $message }}</div>
+                                                @enderror
+                                                @if (isset($rppFiles) && count($rppFiles) > 0)
+                                                    <p>{{ count($rppFiles) }} File</p>
+                                                @endif
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Pendukung RPP 2</label>
+                                                <input type="file" name="pendukung_rpp_2[]" class="form-control" multiple>
+                                                @error('pendukung_rpp_2')
+                                                    <div class="text-danger mt-2">{{ $message }}</div>
+                                                @enderror
+                                                @if (isset($rppFiles) && count($rppFiles) > 0)
+                                                    <p>{{ count($rppFiles) }} File</p>
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-4">
+                                            <div class="mb-2">
+                                                <label class="form-label">RPP 1</label>
+                                                <input type="file" name="rpp_1[]" class="form-control" multiple>
+                                                @error('rpp_1')
+                                                    <div class="text-danger mt-2">{{ $message }}</div>
+                                                @enderror
+                                                @if (isset($rppFiles) && count($rppFiles) > 0)
+                                                    <p>{{ count($rppFiles) }} File</p>
+                                                @endif
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">RPP 1</label>
+                                                <input type="file" name="pendukung_rpp_1[]" class="form-control" multiple>
+                                                @error('pendukung_rpp_1')
+                                                    <div class="text-danger mt-2">{{ $message }}</div>
+                                                @enderror
+                                                @if (isset($rppFiles) && count($rppFiles) > 0)
+                                                    <p>{{ count($rppFiles) }} File</p>
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-4">
+                                            <div class="mb-2">
+                                                <label class="form-label">RPP 1</label>
+                                                <input type="file" name="rpp_1[]" class="form-control" multiple>
+                                                @error('rpp_1')
+                                                    <div class="text-danger mt-2">{{ $message }}</div>
+                                                @enderror
+                                                @if (isset($rppFiles) && count($rppFiles) > 0)
+                                                    <p>{{ count($rppFiles) }} File</p>
+                                                @endif
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">RPP 1</label>
+                                                <input type="file" name="pendukung_rpp_1[]" class="form-control" multiple>
+                                                @error('pendukung_rpp_1')
+                                                    <div class="text-danger mt-2">{{ $message }}</div>
+                                                @enderror
+                                                @if (isset($rppFiles) && count($rppFiles) > 0)
+                                                    <p>{{ count($rppFiles) }} File</p>
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-4">
+                                            <div class="mb-2">
+                                                <label class="form-label">RPP 1</label>
+                                                <input type="file" name="rpp_1[]" class="form-control" multiple>
+                                                @error('rpp_1')
+                                                    <div class="text-danger mt-2">{{ $message }}</div>
+                                                @enderror
+                                                @if (isset($rppFiles) && count($rppFiles) > 0)
+                                                    <p>{{ count($rppFiles) }} File</p>
+                                                @endif
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">RPP 1</label>
+                                                <input type="file" name="pendukung_rpp_1[]" class="form-control" multiple>
+                                                @error('pendukung_rpp_1')
+                                                    <div class="text-danger mt-2">{{ $message }}</div>
+                                                @enderror
+                                                @if (isset($rppFiles) && count($rppFiles) > 0)
+                                                    <p>{{ count($rppFiles) }} File</p>
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-4">
+                                            <div class="mb-2">
+                                                <label class="form-label">RPP 1</label>
+                                                <input type="file" name="rpp_1[]" class="form-control" multiple>
+                                                @error('rpp_1')
+                                                    <div class="text-danger mt-2">{{ $message }}</div>
+                                                @enderror
+                                                @if (isset($rppFiles) && count($rppFiles) > 0)
+                                                    <p>{{ count($rppFiles) }} File</p>
+                                                @endif
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">RPP 1</label>
+                                                <input type="file" name="pendukung_rpp_1[]" class="form-control" multiple>
+                                                @error('pendukung_rpp_1')
+                                                    <div class="text-danger mt-2">{{ $message }}</div>
+                                                @enderror
+                                                @if (isset($rppFiles) && count($rppFiles) > 0)
+                                                    <p>{{ count($rppFiles) }} File</p>
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-4">
+                                            <div class="mb-2">
+                                                <label class="form-label">RPP 1</label>
+                                                <input type="file" name="rpp_1[]" class="form-control" multiple>
+                                                @error('rpp_1')
+                                                    <div class="text-danger mt-2">{{ $message }}</div>
+                                                @enderror
+                                                @if (isset($rppFiles) && count($rppFiles) > 0)
+                                                    <p>{{ count($rppFiles) }} File</p>
+                                                @endif
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">RPP 1</label>
+                                                <input type="file" name="pendukung_rpp_1[]" class="form-control" multiple>
+                                                @error('pendukung_rpp_1')
+                                                    <div class="text-danger mt-2">{{ $message }}</div>
+                                                @enderror
+                                                @if (isset($rppFiles) && count($rppFiles) > 0)
+                                                    <p>{{ count($rppFiles) }} File</p>
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-4">
+                                            <div class="mb-2">
+                                                <label class="form-label">RPP 1</label>
+                                                <input type="file" name="rpp_1[]" class="form-control" multiple>
+                                                @error('rpp_1')
+                                                    <div class="text-danger mt-2">{{ $message }}</div>
+                                                @enderror
+                                                @if (isset($rppFiles) && count($rppFiles) > 0)
+                                                    <p>{{ count($rppFiles) }} File</p>
+                                                @endif
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">RPP 1</label>
+                                                <input type="file" name="pendukung_rpp_1[]" class="form-control" multiple>
+                                                @error('pendukung_rpp_1')
+                                                    <div class="text-danger mt-2">{{ $message }}</div>
+                                                @enderror
+                                                @if (isset($rppFiles) && count($rppFiles) > 0)
+                                                    <p>{{ count($rppFiles) }} File</p>
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-4">
+                                            <div class="mb-2">
+                                                <label class="form-label">RPP 1</label>
+                                                <input type="file" name="rpp_1[]" class="form-control" multiple>
+                                                @error('rpp_1')
+                                                    <div class="text-danger mt-2">{{ $message }}</div>
+                                                @enderror
+                                                @if (isset($rppFiles) && count($rppFiles) > 0)
+                                                    <p>{{ count($rppFiles) }} File</p>
+                                                @endif
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">RPP 1</label>
+                                                <input type="file" name="pendukung_rpp_1[]" class="form-control" multiple>
+                                                @error('pendukung_rpp_1')
+                                                    <div class="text-danger mt-2">{{ $message }}</div>
+                                                @enderror
+                                                @if (isset($rppFiles) && count($rppFiles) > 0)
+                                                    <p>{{ count($rppFiles) }} File</p>
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-4">
+                                            <div class="mb-2">
+                                                <label class="form-label">RPP 1</label>
+                                                <input type="file" name="rpp_1[]" class="form-control" multiple>
+                                                @error('rpp_1')
+                                                    <div class="text-danger mt-2">{{ $message }}</div>
+                                                @enderror
+                                                @if (isset($rppFiles) && count($rppFiles) > 0)
+                                                    <p>{{ count($rppFiles) }} File</p>
+                                                @endif
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">RPP 1</label>
+                                                <input type="file" name="pendukung_rpp_1[]" class="form-control" multiple>
+                                                @error('pendukung_rpp_1')
+                                                    <div class="text-danger mt-2">{{ $message }}</div>
+                                                @enderror
+                                                @if (isset($rppFiles) && count($rppFiles) > 0)
+                                                    <p>{{ count($rppFiles) }} File</p>
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-4">
+                                            <div class="mb-2">
+                                                <label class="form-label">RPP 1</label>
+                                                <input type="file" name="rpp_1[]" class="form-control" multiple>
+                                                @error('rpp_1')
+                                                    <div class="text-danger mt-2">{{ $message }}</div>
+                                                @enderror
+                                                @if (isset($rppFiles) && count($rppFiles) > 0)
+                                                    <p>{{ count($rppFiles) }} File</p>
+                                                @endif
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">RPP 1</label>
+                                                <input type="file" name="pendukung_rpp_1[]" class="form-control" multiple>
+                                                @error('pendukung_rpp_1')
+                                                    <div class="text-danger mt-2">{{ $message }}</div>
+                                                @enderror
+                                                @if (isset($rppFiles) && count($rppFiles) > 0)
+                                                    <p>{{ count($rppFiles) }} File</p>
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-4">
+                                            <div class="mb-2">
+                                                <label class="form-label">RPP 1</label>
+                                                <input type="file" name="rpp_1[]" class="form-control" multiple>
+                                                @error('rpp_1')
+                                                    <div class="text-danger mt-2">{{ $message }}</div>
+                                                @enderror
+                                                @if (isset($rppFiles) && count($rppFiles) > 0)
+                                                    <p>{{ count($rppFiles) }} File</p>
+                                                @endif
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">RPP 1</label>
+                                                <input type="file" name="pendukung_rpp_1[]" class="form-control" multiple>
+                                                @error('pendukung_rpp_1')
+                                                    <div class="text-danger mt-2">{{ $message }}</div>
+                                                @enderror
+                                                @if (isset($rppFiles) && count($rppFiles) > 0)
+                                                    <p>{{ count($rppFiles) }} File</p>
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-4">
+                                            <div class="mb-2">
+                                                <label class="form-label">RPP 1</label>
+                                                <input type="file" name="rpp_1[]" class="form-control" multiple>
+                                                @error('rpp_1')
+                                                    <div class="text-danger mt-2">{{ $message }}</div>
+                                                @enderror
+                                                @if (isset($rppFiles) && count($rppFiles) > 0)
+                                                    <p>{{ count($rppFiles) }} File</p>
+                                                @endif
+                                            </div>
+                                            <div class="mb-3">
                                                 <label class="form-label">RPP 1</label>
                                                 <input type="file" name="pendukung_rpp_1[]" class="form-control" multiple>
                                                 @error('pendukung_rpp_1')
