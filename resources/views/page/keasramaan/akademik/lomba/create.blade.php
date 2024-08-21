@@ -11,11 +11,11 @@
                 <div class="row row-cards">
                     <div class="col-12">
                         <div class="mb-4 col">
-                            <a href="/sekolah-keasramaan/al-quran/sertif" class="btn btn-secondary">
+                            <a href="/sekolah-keasramaan/akademik/lomba" class="btn btn-secondary">
                                 Back
                             </a>
                         </div>
-                        <form class="card" action="{{ route('sertifikat.perform') }}" method="POST"
+                        <form class="card" action="{{ route('lomba.store') }}" method="POST"
                             enctype="multipart/form-data">
                             @csrf
                             <div class="card-body">
@@ -24,7 +24,7 @@
                                     <div class="col-sm-4 col-md-4">
                                         <div class="mb-3">
                                             <label class="form-label">Tanggal</label>
-                                            <input type='text' class="form-control datepicker"
+                                            <input type='date' class="form-control datepicker"
                                                 placeholder="Masukan Tanggal" id="datepicker-icon-1" name="tanggal"
                                                 autocomplete='off'>
                                             @error('tanggal')
@@ -51,7 +51,7 @@
                                         <div class="mb-3">
                                             <label class="form-label">Nama Siswa</label>
                                             <input type='text' class="form-control" placeholder="Masukan Nama"
-                                                name="nama">
+                                                name="nama" value="{{ old('nama') }}">
                                             @error('nama')
                                                 <div class="text-danger mt-2"> {{ $message }} </div>
                                             @enderror
@@ -60,28 +60,45 @@
                                     <div class="col-sm-4 col-md-4">
                                         <div class="mb-3">
                                             <label class="form-label">Nama Kegiatan</label>
-                                            <input type='text' class="form-control" placeholder="Masukan Nama"
-                                                name="kegiatan">
+                                            <input type="text" class="form-control"
+                                                placeholder="Masukan Nama Kegiatan" name="kegiatan"
+                                                value="{{ old('kegiatan') }}">
+                                            @error('kegiatan')
+                                                <div class="text-danger mt-2"> {{ $message }} </div>
+                                            @enderror
                                         </div>
                                     </div>
-                                    <div class="col-sm-4 col-md-4">
+                                    <div class="col-sm-12 col-md-12">
                                         <div class="mb-3">
                                             <label class="form-label">Keterangan</label>
-                                            <input type='text' class="form-control" placeholder="Masukan Nama"
-                                                name="keterangan">
+                                            <textarea class="form-control" placeholder="Masukan Keterangan" name="keterangan">{{ old('keterangan') }}</textarea>
+                                            @error('keterangan')
+                                                <div class="text-danger mt-2"> {{ $message }} </div>
+                                            @enderror
                                         </div>
                                     </div>
-                                    <div class="col-sm-3 col-md-3">
+                                    <div class="col-sm-6 col-md-6">
                                         <div class="mb-3">
                                             <label class="form-label">Dokumentasi</label>
-                                            <input type='file' class="form-control"
-                                                name="dokumentasi">
+                                            <input type="file" class="form-control" name="dokumentasi[]" multiple>
+                                            @error('dokumentasi')
+                                                <div class="text-danger mt-2"> {{ $message }} </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-6">
+                                        <div class="mb-3">
+                                            <label class="form-label">Undangan/Surat</label>
+                                            <input type="file" class="form-control" name="undangan[]" multiple>
+                                            @error('undangan')
+                                                <div class="text-danger mt-2"> {{ $message }} </div>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="card-footer text-end">
-                                <button type="submit" class="btn btn-success">Submit</button>
+                                <button type="submit" class="btn btn-success">Save</button>
                             </div>
                         </form>
                     </div>
@@ -89,37 +106,4 @@
             </div>
         </div>
     </div>
-    <script>
-        // datepicker
-        function initializeDatepickers() {
-            var datepickers = document.querySelectorAll('[id^="datepicker-icon-"]');
-            datepickers.forEach(function(datepicker) {
-                new Litepicker({
-                    element: datepicker,
-                    format: 'DD MMMM YYYY', // Format tanggal
-                    buttonText: {
-                        previousMonth: `<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                <path d="M15 6l-6 6l6 6" /></svg>`,
-                        nextMonth: `<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                <path d="M9 6l6 6l-6 6" /></svg>`,
-                    },
-                    locale: {
-                        months: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus',
-                            'September', 'Oktober', 'November', 'Desember'
-                        ],
-                        weekdays: ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'],
-                    }
-                });
-            });
-        }
-
-        // Panggil fungsi untuk menginisialisasi datepicker
-        document.addEventListener('DOMContentLoaded', function() {
-            initializeDatepickers();
-        });
-    </script>
 </x-app-layout>

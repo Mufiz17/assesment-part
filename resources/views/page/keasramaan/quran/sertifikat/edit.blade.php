@@ -25,7 +25,7 @@
                                     <div class="col-sm-4 col-md-4">
                                         <div class="mb-3">
                                             <label class="form-label">Tanggal</label>
-                                            <input type="text" class="form-control datepicker"
+                                            <input type="date" class="form-control datepicker"
                                                 placeholder="Masukan Tanggal" id="datepicker-icon-1" name="tanggal"
                                                 autocomplete="off" value="{{ $sertifikat->tanggal }}">
                                         </div>
@@ -47,8 +47,14 @@
                                     </div>
                                     <div class="col-sm-4 col-md-4">
                                         <div class="mb-3">
-                                            <label class="form-label">Nama</label>
-                                            <input type="text" class="form-control" placeholder="Masukan Nama" name="nama" value="{{ $sertifikat->nama }}">
+                                            <label class="form-label">Nama Siswa</label>
+                                            <input type="text" class="form-control" placeholder="Masukan Nama Siswa" name="nama" value="{{ $sertifikat->nama }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 col-md-4">
+                                        <div class="mb-3">
+                                            <label class="form-label">NISN Siswa</label>
+                                            <input type="text" class="form-control" placeholder="Masukan NISN Siswa" name="nisn" value="{{ $sertifikat->nisn }}">
                                         </div>
                                     </div>
                                     <div class="col-sm-3 col-md-3">
@@ -89,35 +95,35 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            initializeDatepickers();
+            // initializeDatepickers();
             initializeFileInputs();
             loadExistingFiles();
         });
 
         // Inisialisasi datepicker
-        function initializeDatepickers() {
-            var datepickers = document.querySelectorAll('[id^="datepicker-icon-"]');
-            datepickers.forEach(function(datepicker) {
-                new Litepicker({
-                    element: datepicker,
-                    format: 'DD MMMM YYYY', // Format tanggal
-                    buttonText: {
-                        previousMonth: `<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                            stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                            <path d="M15 6l-6 6l6 6" /></svg>`,
-                        nextMonth: `<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                            stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                            <path d="M9 6l6 6l-6 6" /></svg>`,
-                    },
-                    locale: {
-                        months: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
-                        weekdays: ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'],
-                    }
-                });
-            });
-        }
+        // function initializeDatepickers() {
+        //     var datepickers = document.querySelectorAll('[id^="datepicker-icon-"]');
+        //     datepickers.forEach(function(datepicker) {
+        //         new Litepicker({
+        //             element: datepicker,
+        //             format: 'DD MMMM YYYY', // Format tanggal
+        //             buttonText: {
+        //                 previousMonth: `<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+        //                     viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+        //                     stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        //                     <path d="M15 6l-6 6l6 6" /></svg>`,
+        //                 nextMonth: `<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+        //                     viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+        //                     stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        //                     <path d="M9 6l6 6l-6 6" /></svg>`,
+        //             },
+        //             locale: {
+        //                 months: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
+        //                 weekdays: ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'],
+        //             }
+        //         });
+        //     });
+        // }
 
         // Inisialisasi file input untuk menampilkan nama file yang dipilih
         function initializeFileInputs() {

@@ -47,8 +47,18 @@ return new class extends Migration
             $table->string('alpha')->nullable();
 
             // achivement
-            $table->string('prestasi')->nullable();
-            $table->text('desc_prestasi')->nullable();
+            $table->string('prestasi1')->nullable();
+            $table->text('desc_prestasi1')->nullable();
+            $table->string('prestasi2')->nullable();
+            $table->text('desc_prestasi2')->nullable();
+            $table->string('prestasi3')->nullable();
+            $table->text('desc_prestasi3')->nullable();
+            $table->string('prestasi4')->nullable();
+            $table->text('desc_prestasi4')->nullable();
+            $table->string('prestasi5')->nullable();
+            $table->text('desc_prestasi5')->nullable();
+            $table->string('prestasi6')->nullable();
+            $table->text('desc_prestasi6')->nullable();
 
             // note
             $table->string('note')->nullable();

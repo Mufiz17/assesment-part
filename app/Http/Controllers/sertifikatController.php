@@ -25,6 +25,7 @@ class sertifikatController extends Controller
             'tanggal' => 'required',
             'kelas' => 'required',
             'nama' => 'required',
+            'nisn' => 'required',
             'juz_30' => 'file|max:10240',
             'juz_29' => 'file|max:10240',
             'juz_28' => 'file|max:10240',
@@ -34,6 +35,7 @@ class sertifikatController extends Controller
             'tanggal.required' => 'Tahun ajaran harus diisi',
             'kelas.required' => 'Kelas harus diisi',
             'nama.required' => 'nama harus diisi',
+            'nisn.required' => 'NISN harus diisi',
         ]);
 
         // Menyimpan file-file yang di-upload dengan nama asli
@@ -69,6 +71,7 @@ class sertifikatController extends Controller
             'tanggal' => 'required',
             'kelas' => 'required',
             'nama' => 'required',
+            'nisn' => 'required',
             'juz_30' => 'file|max:10240',
             'juz_29' => 'file|max:10240',
             'juz_28' => 'file|max:10240',
@@ -77,6 +80,7 @@ class sertifikatController extends Controller
             'tanggal.required' => 'Tahun ajaran harus diisi',
             'kelas.required' => 'Kelas harus diisi',
             'nama.required' => 'nama harus diisi',
+            'nisn.required' => 'NISN harus diisi',
         ]);
 
         $sertifikat = sertifikat::findOrFail($id);

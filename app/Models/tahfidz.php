@@ -13,6 +13,7 @@ class tahfidz extends Model
         'tanggal',
         'kelas',
         'nama',
+        'nisn',
         'surat',
         'ayat',
         'predikat',

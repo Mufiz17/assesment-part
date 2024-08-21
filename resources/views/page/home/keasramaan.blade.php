@@ -38,7 +38,7 @@
                     </a>
                 </div>
                 <div class="col-md-4">
-                    <a href="#" class="text-decoration-none">
+                    <a href="sekolah-keasramaan/akademik" class="text-decoration-none">
                         <div class="card shadow-sm mb-4 hover-shadow" style="background-color: rgba(255, 0, 0, 0.25);">
                             <div class="card-body d-flex align-items-center">
                                 <img src="{{ asset('dist/img/gif/education.gif') }}" alt=""
@@ -66,7 +66,7 @@
                     </a>
                 </div>
                 <div class="col-md-4">
-                    <a href="#" class="text-decoration-none">
+                    <a href="sekolah-keasramaan/jurnal-asrama" class="text-decoration-none">
                         <div class="card shadow-sm mb-4 hover-shadow" style="background-color:rgba(0, 123, 255, 0.25);">
                             <div class="card-body d-flex align-items-center">
                                 <img src="{{ asset('dist/img/gif/journal.gif') }}" alt=""

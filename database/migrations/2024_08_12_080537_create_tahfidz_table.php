@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('tahfidz', function (Blueprint $table) {
             $table->id();
-            $table->string('tanggal');
-            $table->string('kelas');
-            $table->string('nama');
+            $table->date('tanggal');
+            $table->bigInteger('siswa_id')->unsigned(); // Ensure this is bigInteger
+            $table->foreign('siswa_id')->references('id')->on('siswa')->cascadeOnDelete();
             $table->string('surat');
             $table->string('ayat');
             $table->string('predikat');

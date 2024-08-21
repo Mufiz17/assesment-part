@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\DataMutasiRequest;
 use App\Models\DataMutasi;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
@@ -76,19 +77,10 @@ class DataMutasiController extends Controller
         //
         return view('database.mutasi.add');
     }
-    public function store(Request $request)
+    public function store(DataMutasiRequest $request)
     {
         try {
-            $validatedData = $request->validate([
-                'nama' => 'required|string|max:50',
-                'status' => 'required|in:Guru,Siswa',
-                'mutasi' => 'required|in:Masuk,Keluar',
-                'tanggal_mutasi' => 'required|date',
-                'asal_sekolah' => 'nullable|string|max:50',
-                'tujuan_berikutnya' => 'nullable|string|max:50',
-                'alasan' => 'required|string',
-                'path_dokumen_pendukung_tambahan' => 'required|file',
-            ]);
+            $validatedData = $request->validated();
         } catch (\Illuminate\Validation\ValidationException $e) {
             return response()->json(['errors' => $e->errors()], 422);
         }
@@ -112,20 +104,22 @@ class DataMutasiController extends Controller
         return view('database.mutasi.edit', compact('dataMutasi'));
     }
 
-    public function update(Request $request, $id)
+    public function update(DataMutasiRequest $request, $id)
     {
 
         try {
-            $validatedData = $request->validate([
-                'nama' => 'required|string|max:50',
-                'status' => 'required|in:Guru,Siswa',
-                'mutasi' => 'required|in:Masuk,Keluar',
-                'tanggal_mutasi' => 'required|date',
-                'asal_sekolah' => 'nullable|string|max:50',
-                'tujuan_berikutnya' => 'nullable|string|max:50',
-                'alasan' => 'required|string',
-                'path_dokumen_pendukung_tambahan' => 'required|file',
-            ]);
+            $validatedData = $request->validated();
+
+            // $validatedData = $request->validate([
+            //     'nama' => 'required|string|max:50',
+            //     'status' => 'required|in:Guru,Siswa',
+            //     'mutasi' => 'required|in:Masuk,Keluar',
+            //     'tanggal_mutasi' => 'required|date',
+            //     'asal_sekolah' => 'nullable|string|max:50',
+            //     'tujuan_berikutnya' => 'nullable|string|max:50',
+            //     'alasan' => 'required|string',
+            //     'path_dokumen_pendukung_tambahan' => 'required|file',
+            // ]);
         } catch (\Illuminate\Validation\ValidationException $e) {
             return response()->json(['errors' => $e->errors()], 422);
         }

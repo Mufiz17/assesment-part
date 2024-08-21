@@ -579,79 +579,79 @@
                                         <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
                                                 <label class="form-label">Prestasi 1</label>
-                                                <input type='text' class="form-control" name="prestasi[]"
+                                                <input type='text' class="form-control" name="prestasi1"
                                                     placeholder="Masukan Nilai">
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
                                                 <label class="form-label">Prestasi 2</label>
-                                                <input type='text' class="form-control" name="prestasi[]"
+                                                <input type='text' class="form-control" name="prestasi2"
                                                     placeholder="Masukan Nilai">
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
                                                 <label class="form-label">Prestasi 3</label>
-                                                <input type='text' class="form-control" name="prestasi[]"
+                                                <input type='text' class="form-control" name="prestasi3"
                                                     placeholder="Masukan Nilai">
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
                                                 <label class="form-label">Deskripsi Prestasi 1</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_prestasi[]"></textarea>
+                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_prestasi1"></textarea>
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
                                                 <label class="form-label">Deskripsi Prestasi 2</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_prestasi[]"></textarea>
+                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_prestasi2"></textarea>
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
                                                 <label class="form-label">Deskripsi Prestasi 3</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_prestasi[]"></textarea>
+                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_prestasi3"></textarea>
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
                                                 <label class="form-label">Prestasi 4</label>
-                                                <input type='number ' class="form-control" name="prestasi[]"
+                                                <input type='number' class="form-control" name="prestasi4"
                                                     placeholder="Masukan Nilai">
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
                                                 <label class="form-label">Prestasi 5</label>
-                                                <input type='number ' class="form-control" name="prestasi[]"
+                                                <input type='number' class="form-control" name="prestasi5"
                                                     placeholder="Masukan Nilai">
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
                                                 <label class="form-label">Prestasi 6</label>
-                                                <input type='number ' class="form-control" name="prestasi[]"
+                                                <input type='number ' class="form-control" name="prestasi6"
                                                     placeholder="Masukan Nilai">
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
                                                 <label class="form-label">Deskripsi Prestasi 4</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_prestasi[]"></textarea>
+                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_prestasi4"></textarea>
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
                                                 <label class="form-label">Deskripsi Prestasi 5</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_prestasi[]"></textarea>
+                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_prestasi5"></textarea>
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
                                                 <label class="form-label">Deskripsi Prestasi 6</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_prestasi[]"></textarea>
+                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_prestasi6"></textarea>
                                             </div>
                                         </div>
                                     </div>

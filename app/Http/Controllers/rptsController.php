@@ -152,5 +152,4 @@ class rptsController extends Controller
         $pdf = Pdf::loadView('page.rapor.pts.merdeka', compact('rpts'));
         return $pdf->stream('rpts.pdf');
     }
-
-    }
+}

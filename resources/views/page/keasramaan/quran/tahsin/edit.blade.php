@@ -45,8 +45,14 @@
                                     </div>
                                     <div class="col-sm-4 col-md-4">
                                         <div class="mb-3">
-                                            <label class="form-label">Nama</label>
-                                            <input type="text" class="form-control" placeholder="Masukan Nama" name="nama" value="{{ $tahsin->nama }}">
+                                            <label class="form-label">Nama Siswa</label>
+                                            <input type="text" class="form-control" placeholder="Masukan Nama Siswa" name="nama" value="{{ $tahsin->nama }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 col-md-4">
+                                        <div class="mb-3">
+                                            <label class="form-label">NISN Siswa</label>
+                                            <input type="text" class="form-control" placeholder="Masukan NISN Siswa" name="nisn" value="{{ $tahsin->nisn }}">
                                         </div>
                                     </div>
                                     <div class="col-sm-3 col-md-3">

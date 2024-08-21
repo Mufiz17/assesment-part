@@ -13,10 +13,9 @@ return new class extends Migration
     {
         Schema::create('sertifikat', function (Blueprint $table) {
             $table->id();
-            $table->string('tanggal');
-            $table->string('kelas');
-            $table->string('nama');
-            $table->string('juz_30')->nullable();
+            $table->date('tanggal');
+            $table->bigInteger('siswa_id')->unsigned(); // Ensure this is bigInteger
+            $table->foreign('siswa_id')->references('id')->on('siswa')->cascadeOnDelete();            $table->string('juz_30')->nullable();
             $table->string('juz_29')->nullable();
             $table->string('juz_28')->nullable();
             $table->string('juz_umum')->nullable();

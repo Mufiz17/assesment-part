@@ -24,7 +24,7 @@
                                     <div class="col-sm-4 col-md-4">
                                         <div class="mb-3">
                                             <label class="form-label">Tanggal</label>
-                                            <input type='text' class="form-control datepicker"
+                                            <input type='date' class="form-control datepicker"
                                                 placeholder="Masukan Tanggal" id="datepicker-icon-1" name="tanggal"
                                                 autocomplete='off'>
                                             @error('tanggal')
@@ -53,6 +53,16 @@
                                             <input type='text' class="form-control" placeholder="Masukan Nama"
                                                 name="nama">
                                             @error('nama')
+                                                <div class="text-danger mt-2"> {{ $message }} </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 col-md-4">
+                                        <div class="mb-3">
+                                            <label class="form-label">NISN Siswa</label>
+                                            <input type='text' class="form-control" placeholder="Masukan NISN"
+                                                name="nisn">
+                                            @error('nisn')
                                                 <div class="text-danger mt-2"> {{ $message }} </div>
                                             @enderror
                                         </div>
@@ -108,7 +118,7 @@
             </div>
         </div>
     </div>
-    <script>
+    {{-- <script>
         // datepicker
         function initializeDatepickers() {
             var datepickers = document.querySelectorAll('[id^="datepicker-icon-"]');
@@ -140,5 +150,5 @@
         document.addEventListener('DOMContentLoaded', function() {
             initializeDatepickers();
         });
-    </script>
+    </script> --}}
 </x-app-layout>

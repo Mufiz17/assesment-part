@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\GuruRequest;
 use App\Models\Guru;
 use App\Models\IjazahGuru;
 use Illuminate\Http\Request;
@@ -55,58 +56,59 @@ class GuruController extends Controller
         }
     }
 
-    public function store(Request $request)
+    public function store(GuruRequest $request)
     {
-        $validatedData = $request->validate([
-            'nama' => 'required',
-            'no_nik' => 'required',
-            'no_gtk' => 'required',
-            'no_nuptk' => 'required',
-            'tempat_tanggal_lahir' => 'required',
-            'tanggal_lahir' => 'required|date',
-            'jenis_kelamin' => 'required',
-            'agama' => 'required',
-            'nama_lulusan_pt' => 'required',
-            'nama_jurusan_pt' => 'required',
-            'alamat' => 'required',
-            'no_hp' => 'required',
-            'mapel' => 'required',
-            'gelar' => 'required',
-            'email' => 'required',
-            'no_rekening' => 'required',
-            'status_kepegawaian' => 'required',
-            'tanggal_masuk' => 'required',
-            'foto' => 'required',
-            'foto_ktp' => 'required',
-            'foto_surat_keterangan_mengajar' => 'required',
-            'ijazah_smp' => 'required',
-            'ijazah_sma' => 'required'
-        ], [
-            'nama.required' => 'Nama wajib diisi',
-            'no_nik.required' => 'Nomor NIK wajib diisi',
-            'no_gtk.required' => 'Nomor GTK wajib diisi',
-            'no_nuptk.required' => 'Nomor NUPTK wajib diisi',
-            'tempat_tanggal_lahir.required' => 'Tempat dan tanggal lahir wajib diisi',
-            'tanggal_lahir.required' => 'Tanggal lahir wajib diisi',
-            'tanggal_lahir.date' => 'Tanggal lahir harus berupa tanggal yang valid',
-            'jenis_kelamin.required' => 'Jenis kelamin wajib diisi',
-            'agama.required' => 'Agama wajib diisi',
-            'nama_lulusan_pt.required' => 'Nama lulusan PT wajib diisi',
-            'nama_jurusan_pt.required' => 'Nama jurusan PT wajib diisi',
-            'alamat.required' => 'Alamat wajib diisi',
-            'no_hp.required' => 'Nomor HP wajib diisi',
-            'mapel.required' => 'Mapel wajib diisi',
-            'gelar.required' => 'Gelar wajib diisi',
-            'email.required' => 'Email wajib diisi',
-            'no_rekening.required' => 'Nomor rekening wajib diisi',
-            'status_kepegawaian.required' => 'Status kepegawaian wajib diisi',
-            'tanggal_masuk.required' => 'Tanggal masuk wajib diisi',
-            'foto.required' => 'Foto wajib diisi',
-            'foto_ktp.required' => 'Foto KTP wajib diisi',
-            'foto_surat_keterangan_mengajar.required' => 'Foto surat keterangan mengajar wajib diisi',
-            'ijazah_smp.required' => 'Foto Ijazah SMP wajib diisi',
-            'ijazah_sma.required' => 'Foto Ijazah SMA wajib diisi',
-        ]);
+        $validatedData = $request->validated();
+        // $validatedData = $request->validate([
+        //     'nama' => 'required',
+        //     'no_nik' => 'required',
+        //     'no_gtk' => 'required',
+        //     'no_nuptk' => 'required',
+        //     'tempat_tanggal_lahir' => 'required',
+        //     'tanggal_lahir' => 'required|date',
+        //     'jenis_kelamin' => 'required',
+        //     'agama' => 'required',
+        //     'nama_lulusan_pt' => 'required',
+        //     'nama_jurusan_pt' => 'required',
+        //     'alamat' => 'required',
+        //     'no_hp' => 'required',
+        //     'mapel' => 'required',
+        //     'gelar' => 'required',
+        //     'email' => 'required',
+        //     'no_rekening' => 'required',
+        //     'status_kepegawaian' => 'required',
+        //     'tanggal_masuk' => 'required',
+        //     'foto' => 'required',
+        //     'foto_ktp' => 'required',
+        //     'foto_surat_keterangan_mengajar' => 'required',
+        //     'ijazah_smp' => 'required',
+        //     'ijazah_sma' => 'required'
+        // ], [
+        //     'nama.required' => 'Nama wajib diisi',
+        //     'no_nik.required' => 'Nomor NIK wajib diisi',
+        //     'no_gtk.required' => 'Nomor GTK wajib diisi',
+        //     'no_nuptk.required' => 'Nomor NUPTK wajib diisi',
+        //     'tempat_tanggal_lahir.required' => 'Tempat dan tanggal lahir wajib diisi',
+        //     'tanggal_lahir.required' => 'Tanggal lahir wajib diisi',
+        //     'tanggal_lahir.date' => 'Tanggal lahir harus berupa tanggal yang valid',
+        //     'jenis_kelamin.required' => 'Jenis kelamin wajib diisi',
+        //     'agama.required' => 'Agama wajib diisi',
+        //     'nama_lulusan_pt.required' => 'Nama lulusan PT wajib diisi',
+        //     'nama_jurusan_pt.required' => 'Nama jurusan PT wajib diisi',
+        //     'alamat.required' => 'Alamat wajib diisi',
+        //     'no_hp.required' => 'Nomor HP wajib diisi',
+        //     'mapel.required' => 'Mapel wajib diisi',
+        //     'gelar.required' => 'Gelar wajib diisi',
+        //     'email.required' => 'Email wajib diisi',
+        //     'no_rekening.required' => 'Nomor rekening wajib diisi',
+        //     'status_kepegawaian.required' => 'Status kepegawaian wajib diisi',
+        //     'tanggal_masuk.required' => 'Tanggal masuk wajib diisi',
+        //     'foto.required' => 'Foto wajib diisi',
+        //     'foto_ktp.required' => 'Foto KTP wajib diisi',
+        //     'foto_surat_keterangan_mengajar.required' => 'Foto surat keterangan mengajar wajib diisi',
+        //     'ijazah_smp.required' => 'Foto Ijazah SMP wajib diisi',
+        //     'ijazah_sma.required' => 'Foto Ijazah SMA wajib diisi',
+        // ]);
 
         $nama = $request->nama;
         $namaDir = str_replace(' ', '_', $nama);

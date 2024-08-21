@@ -590,79 +590,79 @@
                                         <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
                                                 <label class="form-label">Prestasi 1</label>
-                                                <input type='number ' class="form-control" name="prestasi[0]"
-                                                    placeholder="Masukan Nilai" value="{{ $rapor->prestasi[0] }}">
+                                                <input type='number ' class="form-control" name="prestasi1"
+                                                    placeholder="Masukan Nilai" value="{{ $rapor->prestasi1 }}">
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
                                                 <label class="form-label">Prestasi 2</label>
-                                                <input type='number ' class="form-control" name="prestasi[1]"
-                                                    placeholder="Masukan Nilai" value="{{ $rapor->prestasi[1] }}">
+                                                <input type='number ' class="form-control" name="prestasi2"
+                                                    placeholder="Masukan Nilai" value="{{ $rapor->prestasi2 }}">
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
                                                 <label class="form-label">Prestasi 3</label>
-                                                <input type='number ' class="form-control" name="prestasi[2]"
-                                                    placeholder="Masukan Nilai" value="{{ $rapor->prestasi[2] }}">
+                                                <input type='number ' class="form-control" name="prestasi3"
+                                                    placeholder="Masukan Nilai" value="{{ $rapor->prestasi3 }}">
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
                                                 <label class="form-label">Deskripsi Prestasi 1</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_prestasi[0]">{{ $rapor->desc_prestasi[0] }}</textarea>
+                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_prestasi1">{{ $rapor->desc_prestasi1 }}</textarea>
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
                                                 <label class="form-label">Deskripsi Prestasi 2</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_prestasi[1]">{{ $rapor->desc_prestasi[1] }}</textarea>
+                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_prestasi2">{{ $rapor->desc_prestasi2 }}</textarea>
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
                                                 <label class="form-label">Deskripsi Prestasi 3</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_prestasi[2]">{{ $rapor->desc_prestasi[2] }}</textarea>
+                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_prestasi3">{{ $rapor->desc_prestasi3 }}</textarea>
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
                                                 <label class="form-label">Prestasi 4</label>
-                                                <input type='number ' class="form-control" name="prestasi[3]"
-                                                    placeholder="Masukan Nilai" value="{{ $rapor->prestasi[3] }}">
+                                                <input type='number ' class="form-control" name="prestasi4"
+                                                    placeholder="Masukan Nilai" value="{{ $rapor->prestasi4 }}">
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
                                                 <label class="form-label">Prestasi 5</label>
-                                                <input type='number ' class="form-control" name="prestasi[4]"
-                                                    placeholder="Masukan Nilai" value="{{ $rapor->prestasi[4] }}">
+                                                <input type='number ' class="form-control" name="prestasi5"
+                                                    placeholder="Masukan Nilai" value="{{ $rapor->prestasi5 }}">
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
                                                 <label class="form-label">Prestasi 6</label>
-                                                <input type='number ' class="form-control" name="prestasi[5"
-                                                    placeholder="Masukan Nilai" value="{{ $rapor->prestasi[5] }}">
+                                                <input type='number ' class="form-control" name="prestasi6"
+                                                    placeholder="Masukan Nilai" value="{{ $rapor->prestasi6 }}">
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
                                                 <label class="form-label">Deskripsi Prestasi 4</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_prestasi[3]">{{ $rapor->desc_prestasi[3] }}</textarea>
+                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_prestasi4">{{ $rapor->desc_prestasi4 }}</textarea>
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
                                                 <label class="form-label">Deskripsi Prestasi 5</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_prestasi[4]">{{ $rapor->desc_prestasi[4] }}</textarea>
+                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_prestasi5">{{ $rapor->desc_prestasi5 }}</textarea>
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-4">
                                             <div class="mb-3">
                                                 <label class="form-label">Deskripsi Prestasi 6</label>
-                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_prestasi[5]">{{ $rapor->desc_prestasi[5] }}</textarea>
+                                                <textarea rows="5" class="form-control" placeholder="Deskripsi" name="desc_prestasi6">{{ $rapor->desc_prestasi6 }}</textarea>
                                             </div>
                                         </div>
                                     </div>

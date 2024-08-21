@@ -13,6 +13,7 @@
         "livewire/livewire": "^3.4",
         "livewire/volt": "^1.0",
         "mpdf/mpdf": "^8.2",
+        "nesbot/carbon": "^3.7",
         "wemersonjanuario/wkhtmltopdf-windows": "0.12.2.3"
     },
     "require-dev": {

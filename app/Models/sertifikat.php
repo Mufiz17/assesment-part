@@ -13,6 +13,7 @@ class sertifikat extends Model
         'tanggal',
         'kelas',
         'nama',
+        'nisn',
         'juz_30',
         'juz_29',
         'juz_28',
